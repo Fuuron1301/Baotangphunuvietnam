@@ -1447,16 +1447,18 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
   #museum-hero-fullscreen img{object-fit:contain!important;object-position:center 92%!important;-webkit-mask-image:none!important;mask-image:none!important;}
   #museum-hero-fullscreen>div[aria-hidden]{display:none!important;}
   #page-about-museum>.about-hero{padding-top:1rem!important;margin-left:0!important;margin-right:0!important;margin-top:0!important;}
-  .museum-hero-overlay{padding:1.1rem 1.25rem 1.25rem!important;}
-  .museum-hero-welcome{top:7%!important;left:6%!important;right:6%!important;max-width:none!important;}
+  .museum-hero-overlay{padding:calc(var(--nh) + 0.8rem) 1.25rem 0!important;}
+  .museum-hero-welcome{top:20%!important;left:6%!important;right:6%!important;max-width:none!important;}
   .museum-hero-welcome h1{font-size:clamp(1.8rem,7vw,3rem)!important;}
 }
-/* Hero overlay: breadcrumb + nhãn "Về bảo tàng" đặt trên ảnh bìa */
-.museum-hero-overlay{position:absolute;left:0;right:0;bottom:0;z-index:5;padding:4rem 4rem 2.2rem;pointer-events:none;}
+/* Hero overlay: breadcrumb đặt trên cùng, góc trái (giống các thanh điều hướng khác) */
+.museum-hero-overlay{position:absolute;left:0;right:0;top:0;z-index:5;padding:calc(var(--nh) + 1.4rem) 4rem 0;pointer-events:none;}
 .museum-hero-overlay .slbl{opacity:1!important;color:var(--text)!important;margin-bottom:0.45rem!important;font-weight:600;}
 .museum-hero-overlay .nav-breadcrumb{pointer-events:auto;cursor:pointer;display:inline-block;transition:opacity 0.25s ease;}
 .museum-hero-overlay .nav-breadcrumb:hover{opacity:0.7!important;}
 .museum-hero-overlay .museum-hero-label{margin-bottom:0!important;}
+.museum-crumb .mc-sep{margin:0 0.5rem;opacity:0.45;}
+.museum-crumb .mc-cur{font-weight:700;}
 /* Hero welcome title — đặt ở khoảng trống của ảnh, gradient giống Dáng sen */
 .museum-hero-welcome{position:absolute;z-index:4;top:18%;left:5%;max-width:46%;pointer-events:none;}
 .museum-hero-welcome h1{font-family:var(--F);font-weight:400;font-size:clamp(2rem,4.4vw,4.6rem);line-height:1.18;margin:0;}
@@ -5444,8 +5446,13 @@ body.ds-modal-lock{overflow:hidden;}
     <h1 class="ds-title-gradient">Chào mừng đến với<br>Bảo tàng Phụ nữ Việt Nam</h1>
   </div>
   <div class="museum-hero-overlay">
-    <p class="slbl nav-breadcrumb" style="cursor:pointer;" onclick="showPage('home')">← Trang chủ </p>
-    <p class="slbl museum-hero-label"></p>
+    <p class="slbl museum-crumb">
+      <span class="nav-breadcrumb" onclick="showPage('home')">Trang chủ</span>
+      <span class="mc-sep">›</span>
+      <span class="nav-breadcrumb" onclick="showPage('about-museum')">Giới thiệu</span>
+      <span class="mc-sep">›</span>
+      <span class="mc-cur">Bảo tàng Phụ nữ Việt Nam</span>
+    </p>
   </div>
   <button onclick="document.getElementById('museum-hero-fullscreen').nextElementSibling.scrollIntoView({behavior:'smooth'})" class="museum-scroll-btn" title="Xem nội dung">
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11 4v14M4 13l7 7 7-7" stroke="#431027" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
