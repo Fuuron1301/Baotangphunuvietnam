@@ -1,0 +1,30 @@
+# Vercel link / secrets
+.vercel/
+.deploy/
+*.env
+.env*
+
+# Editor / tooling
+.vscode/
+.wrangler/
+
+# Large source / temp artifacts (not used by the live site)
+baotangphunuvietnam_v70.html
+index.optimized.html
+.tmp_drive_folder.html
+_tmp_snip.txt
+
+# Dev scripts
+scripts/
+extract-inline-assets.mjs
+fix-encoding.js
+fix-encoding-v2.js
+
+# Unused root fonts (live site uses fonts in assets/inline)
+1FTV-VIP-Ritus.ttf
+Unbounded-Regular.ttf
+
+# Empty / unused asset dirs
+public/
+assets/nsth-drive/
+assets/nsth-tmp/

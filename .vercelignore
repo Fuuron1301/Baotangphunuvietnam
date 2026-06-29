@@ -1,0 +1,17 @@
+# Source / dev artifacts - not needed for the live site
+baotangphunuvietnam_v70.html
+index.optimized.html
+.tmp_drive_folder.html
+_tmp_snip.txt
+scripts/
+.wrangler/
+.deploy/
+.vscode/
+public/
+*.md
+*.mjs
+fix-encoding.js
+fix-encoding-v2.js
+supabase-schema.sql
+1FTV-VIP-Ritus.ttf
+Unbounded-Regular.ttf
