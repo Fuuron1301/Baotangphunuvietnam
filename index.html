@@ -1223,169 +1223,130 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 .ttm-close-sub{font-family:var(--F);font-size:clamp(1rem,2vw,1.55rem);color:#86204e;line-height:1.5;max-width:24ch;opacity:0.92;}
 
 /* ============ NỮ SẮC THIÊN HƯƠNG VƯƠNG SỢI CHỈ ============ */
-#page-nu-sac-thien-huong{position:relative;transform-style:preserve-3d;}
+#page-nu-sac-thien-huong{position:relative;}
 .nsth-cloth{position:relative;overflow:hidden;
-  background-color:#f2b8c2;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.5) 0%, transparent 40%),
+    repeating-linear-gradient(90deg, rgba(180,90,120,0.05) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(0deg, rgba(180,90,120,0.05) 0 2px, transparent 2px 6px),
+    radial-gradient(ellipse 90% 70% at 30% 24%, rgba(247,221,228,0.9) 0%, transparent 62%),
+    radial-gradient(ellipse 80% 60% at 78% 70%, rgba(226,170,188,0.4) 0%, transparent 60%),
+    linear-gradient(160deg,#f6dbe1 0%,#f0cdd6 30%,#e9bccb 60%,#e3b0c2 100%);}
+.nsth-cloth::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.5;
   background-image:
-    radial-gradient(ellipse 55% 45% at 18% 38%, rgba(255,228,234,0.75) 0%, transparent 68%),
-    radial-gradient(ellipse 48% 40% at 72% 62%, rgba(232,168,184,0.45) 0%, transparent 65%),
-    radial-gradient(ellipse 38% 32% at 88% 22%, rgba(255,210,220,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 42% 36% at 42% 82%, rgba(210,130,150,0.28) 0%, transparent 62%),
-    linear-gradient(168deg,#f8d2d9 0%,#f0b8c4 38%,#e8a0b0 72%,#dfa0b0 100%);}
-.nsth-cloth::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.42;
-  background-image:
-    repeating-linear-gradient(118deg, rgba(255,255,255,0.14) 0 1px, transparent 1px 14px),
-    repeating-linear-gradient(28deg, rgba(140,50,75,0.06) 0 1px, transparent 1px 18px),
-    radial-gradient(circle at 22% 44%, rgba(255,240,244,0.5) 0 80px, transparent 81px),
-    radial-gradient(circle at 58% 28%, rgba(255,230,236,0.35) 0 60px, transparent 61px),
-    radial-gradient(circle at 76% 68%, rgba(240,200,210,0.3) 0 90px, transparent 91px);}
-.nsth-sec{position:relative;z-index:2;transform-style:preserve-3d;}
+    repeating-linear-gradient(115deg, rgba(255,255,255,0.18) 0 1px, transparent 1px 9px),
+    repeating-linear-gradient(65deg, rgba(150,60,90,0.07) 0 1px, transparent 1px 11px);}
+.nsth-sec{position:relative;z-index:2;}
 /* breadcrumb */
-.nsth-crumb{position:absolute;top:1.8rem;left:2.4rem;z-index:6;font-family:var(--B);font-size:11px;font-weight:700;letter-spacing:0.05em;color:#5a1226;display:flex;align-items:center;gap:0.5rem;text-transform:uppercase;}
+.nsth-crumb{position:absolute;top:1.8rem;left:2.4rem;z-index:6;font-family:var(--B);font-size:11px;font-weight:700;letter-spacing:0.05em;color:#7a1f33;display:flex;align-items:center;gap:0.5rem;text-transform:uppercase;}
 .nsth-crumb .nc-l{cursor:pointer;opacity:0.75;font-weight:600;}
 .nsth-crumb .nc-l:hover{opacity:1;}
-.nsth-crumb .nc-sep{color:#8b3a4f;font-size:9px;}
+.nsth-crumb .nc-sep{color:#9b3552;font-size:9px;}
 .nsth-crumb .nc-cur{opacity:0.95;}
-/* HERO — một màn: chữ trái + 3D phải */
-.nsth-hero{min-height:calc(100vh - var(--nh));padding:5.5rem 2.5rem 3rem;position:relative;display:flex;align-items:stretch;}
-.nsth-hero-shell{display:grid;grid-template-columns:minmax(280px,42%) 1fr;gap:1.5rem;align-items:center;width:100%;max-width:1440px;margin:0 auto;min-height:calc(100vh - var(--nh) - 8rem);}
-.nsth-hero-copy{display:flex;flex-direction:column;justify-content:center;align-self:stretch;padding:2rem 0 3.5rem;position:relative;z-index:3;text-align:left;}
-.nsth-hero-title{font-family:var(--F);font-weight:400;color:#5a0f22;line-height:0.98;margin:0;}
-.nsth-hero-title .l1{display:block;font-size:clamp(2.6rem,5.2vw,5rem);letter-spacing:-0.01em;}
-.nsth-hero-title .l2{display:block;font-size:clamp(2.2rem,4.6vw,4.4rem);padding-left:1.15em;color:#6e1a35;margin-top:0.12em;}
-.nsth-hero-cta{margin-top:auto;padding-top:2.5rem;font-family:var(--B);font-size:clamp(0.95rem,1.35vw,1.15rem);font-weight:700;letter-spacing:0.02em;color:#e8874f;line-height:1.4;}
-.nsth-stage-wrap{position:relative;min-height:min(72vh,680px);display:flex;flex-direction:column;justify-content:flex-end;}
-.nsth-stage{position:relative;flex:1;min-height:min(68vh,640px);perspective:1800px;perspective-origin:52% 46%;transform-style:preserve-3d;}
-.nsth-ped .ped-stand{display:flex;flex-direction:column;align-items:center;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);position:relative;width:100%;will-change:transform;}
-.nsth-ped .ped-col{position:relative;width:clamp(108px,9.5vw,138px);margin:0 auto;border-radius:50% 50% 12px 12px/12% 12% 5% 5%;transform-style:preserve-3d;
-  background:linear-gradient(102deg,#f5a06a 0%,#ec8a52 22%,#df7238 48%,#cf6228 72%,#e8874f 100%);
-  box-shadow:inset 16px 0 28px rgba(255,255,255,0.28), inset -22px 0 34px rgba(120,40,10,0.35), 0 22px 36px rgba(140,50,20,0.22);}
+/* HERO */
+.nsth-hero{min-height:calc(100vh - var(--nh));display:flex;align-items:center;padding:5rem 3rem 4rem;position:relative;}
+.nsth-hero-inner{display:grid;grid-template-columns:1.25fr 0.75fr;gap:3rem;align-items:center;width:100%;max-width:1280px;margin:0 auto;}
+.nsth-hero-title{font-family:var(--F);font-weight:400;color:#7a1530;line-height:1.0;}
+.nsth-hero-title .l1{display:block;font-size:clamp(2.2rem,5vw,4.6rem);}
+.nsth-hero-title .l2{display:block;font-size:clamp(2rem,4.4vw,4rem);padding-left:2.5em;color:#9b2f56;margin-top:0.1em;}
+.nsth-hero-text{font-family:var(--B);font-weight:400;font-size:clamp(0.9rem,1.15vw,1.05rem);line-height:1.95;color:#5a1226;text-align:justify;}
+/* thread / dashed diamond motif */
+.nsth-thread{position:absolute;z-index:1;display:flex;align-items:center;gap:0;opacity:0.85;pointer-events:none;}
+.nsth-thread .tdash{height:0;border-top:2px dashed #9b2f48;width:90px;opacity:0.55;}
+.nsth-thread .tdia{width:26px;height:26px;border:2px solid #9b2f48;transform:rotate(45deg);margin:0 6px;opacity:0.7;
+  background:repeating-linear-gradient(45deg,rgba(155,47,72,0.25) 0 3px,transparent 3px 6px);}
+.nsth-thread.t-top{top:9%;left:34%;right:4%;}
+.nsth-thread.t-mid{top:52%;left:0;width:46%;}
+.nsth-scrolldown{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);z-index:5;width:46px;height:46px;border:1.5px solid #9b2f48;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#9b2f48;cursor:pointer;background:rgba(255,255,255,0.35);animation:nsthBob 2.2s ease-in-out infinite;}
+@keyframes nsthBob{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(7px);}}
+/* STAGE — 3 cột 3D */
+.nsth-stage-sec{min-height:calc(100vh - var(--nh));padding:4rem 3rem 5rem;position:relative;display:flex;flex-direction:column;justify-content:center;}
+.nsth-stage-head{max-width:520px;}
+.nsth-stage-head .sh-title{font-family:var(--F);font-weight:400;line-height:1.0;color:#7a1530;}
+.nsth-stage-head .sh-title .l1{display:block;font-size:clamp(1.8rem,3.6vw,3.2rem);}
+.nsth-stage-head .sh-title .l2{display:block;font-size:clamp(1.5rem,3vw,2.6rem);padding-left:2em;color:#9b2f56;}
+.nsth-stage{position:relative;height:min(62vh,560px);margin-top:1rem;perspective:1400px;}
+.nsth-ped .ped-col{position:relative;width:150px;margin:0 auto;height:230px;border-radius:50% 50% 14px 14px/14% 14% 6% 6%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);
+  background:linear-gradient(100deg,#e6a7bf 0%,#cf6f93 30%,#b5577a 60%,#8e3f5d 85%,#b5577a 100%);
+  box-shadow:inset 18px 0 30px rgba(255,255,255,0.22), inset -26px 0 38px rgba(60,10,28,0.4), 0 20px 30px rgba(122,15,36,0.18);}
 .nsth-ped .ped-col::after{content:"";position:absolute;inset:0;border-radius:inherit;
-  background:repeating-linear-gradient(90deg,rgba(255,255,255,0.14) 0 2px,rgba(100,35,10,0.12) 2px 6px,transparent 6px 12px);opacity:0.72;}
-.nsth-ped[data-idx="0"] .ped-col{height:clamp(175px,20vh,215px);}
-.nsth-ped[data-idx="1"] .ped-col{height:clamp(250px,30vh,310px);}
-.nsth-ped[data-idx="2"] .ped-col{height:clamp(125px,15vh,155px);}
-.nsth-stage-rotctrl{display:flex;gap:0.65rem;align-items:center;justify-content:flex-start;position:absolute;bottom:0;left:0;opacity:0;pointer-events:none;transition:opacity .35s;z-index:5;}
-.nsth-stage-wrap:hover .nsth-stage-rotctrl{opacity:0.65;pointer-events:auto;}
-.nsth-rotbtn{width:38px;height:38px;border-radius:50%;border:1.5px solid #c2683f;background:rgba(255,255,255,0.45);color:#c2683f;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
-.nsth-rotbtn:hover{background:#c2683f;color:var(--ivory);}
-.nsth-rotlbl{font-family:var(--B);font-size:10px;font-weight:600;letter-spacing:0.06em;color:#c2683f;text-transform:uppercase;}
-.nsth-ped{position:absolute;width:clamp(170px,16vw,220px);cursor:grab;touch-action:none;transition:filter .3s;transform-style:preserve-3d;}
-.nsth-ped:hover,.nsth-ped.dragging{filter:drop-shadow(0 16px 28px rgba(100,35,20,0.22));}
-.nsth-ped.dragging{cursor:grabbing;z-index:30!important;}
-.nsth-ped .ped-col::before{content:"";position:absolute;top:-6px;left:0;right:0;height:22px;border-radius:50%;
-  background:linear-gradient(102deg,#f5a06a,#ec8a52);box-shadow:inset 0 3px 8px rgba(255,255,255,0.35);transform:translateZ(1px);}
-.nsth-ped .ped-art{position:relative;transform:none;width:clamp(130px,12vw,185px);height:clamp(150px,17vh,205px);
-  display:flex;align-items:flex-end;justify-content:center;margin-bottom:-28px;z-index:3;transform-style:preserve-3d;}
-.nsth-ped[data-idx="1"] .ped-art{width:clamp(150px,14vw,210px);height:clamp(175px,20vh,235px);}
-.nsth-ped[data-idx="2"] .ped-art{width:clamp(115px,10vw,155px);height:clamp(120px,14vh,160px);}
-.nsth-ped .ped-art img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(60,20,10,0.28));pointer-events:none;}
-.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);width:min(250px,34vw);background:rgba(252,228,234,0.92);backdrop-filter:blur(6px);
-  border-radius:14px;padding:0.85rem 1.05rem;font-family:var(--B);font-size:11.5px;line-height:1.48;color:#5a0f22;box-shadow:0 10px 24px rgba(90,15,34,0.16);text-align:left;z-index:8;
-  opacity:0;visibility:hidden;pointer-events:none;transition:opacity .28s ease,visibility .28s ease,transform .28s ease;}
-.nsth-ped:hover .ped-tag,.nsth-ped:focus-within .ped-tag{opacity:1;visibility:visible;}
-.nsth-ped[data-idx="0"] .ped-tag{bottom:calc(100% + 0.4rem);left:72%;transform:translateX(0);}
-.nsth-ped[data-idx="1"] .ped-tag{bottom:38%;right:calc(100% + 0.6rem);left:auto;transform:none;}
-.nsth-ped[data-idx="2"] .ped-tag{bottom:calc(100% + 0.35rem);left:auto;right:48%;transform:none;}
-.nsth-ped .ped-tag b{color:#7a1530;font-weight:700;}
-.nsth-stage-hint{display:none;}
-@keyframes nsthBob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
-.nsth-ped[data-idx="0"]{z-index:2;}
-.nsth-ped[data-idx="1"]{z-index:3;}
-.nsth-ped[data-idx="2"]{z-index:4;}
-/* DETAIL pages — theo Canva slide 15–63 */
-.nsth-detail{position:relative;min-height:100vh;padding:5.5rem 2.5rem 4rem;scroll-margin-top:var(--nh);overflow:hidden;
-  background-color:#f2b8c2;
-  background-image:
-    radial-gradient(ellipse 55% 45% at 18% 38%, rgba(255,228,234,0.75) 0%, transparent 68%),
-    radial-gradient(ellipse 48% 40% at 72% 62%, rgba(232,168,184,0.45) 0%, transparent 65%),
-    linear-gradient(168deg,#f8d2d9 0%,#f0b8c4 38%,#e8a0b0 72%,#dfa0b0 100%);}
-.nsth-detail::before,.nsth-detail::after{content:"";position:absolute;top:0;bottom:0;width:min(32px,3vw);z-index:1;pointer-events:none;opacity:0.55;
-  background:repeating-linear-gradient(180deg,rgba(150,60,80,0.12) 0 6px,transparent 6px 14px);}
-.nsth-detail::before{left:0;border-right:1px solid rgba(122,15,36,0.08);}
-.nsth-detail::after{right:0;border-left:1px solid rgba(122,15,36,0.08);}
-.nsth-detail-wrap{position:relative;z-index:2;max-width:1280px;margin:0 auto;}
-.nsth-detail .nsth-crumb{position:static;margin-bottom:1rem;}
-.nsth-back{display:inline-flex;align-items:center;gap:0.65rem;border:2px solid #7a1530;border-radius:999px;background:transparent;
-  font-family:var(--B);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#7a1530;padding:11px 20px;cursor:pointer;transition:all .3s;margin-bottom:1.8rem;}
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,0.12) 0 3px,rgba(120,30,60,0.10) 3px 7px,transparent 7px 13px);opacity:0.6;}
+.nsth-stage-rotctrl{display:flex;gap:0.7rem;align-items:center;margin-top:0.5rem;}
+.nsth-rotbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid #9b3552;background:rgba(255,255,255,0.4);color:#9b3552;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.nsth-rotbtn:hover{background:#9b3552;color:var(--ivory);}
+.nsth-rotlbl{font-family:var(--B);font-size:11px;font-weight:600;letter-spacing:0.05em;color:#9b3552;text-transform:uppercase;opacity:0.75;}
+.nsth-ped{position:absolute;bottom:6%;width:200px;cursor:grab;touch-action:none;transition:filter .3s;}
+.nsth-ped:active{cursor:grabbing;}
+.nsth-ped.dragging{z-index:30!important;filter:drop-shadow(0 18px 30px rgba(122,15,36,0.3));}
+.nsth-ped .ped-col::before{content:"";position:absolute;top:-7px;left:0;right:0;height:26px;border-radius:50%;
+  background:linear-gradient(100deg,#e6a7bf,#cf6f93);box-shadow:inset 0 4px 10px rgba(255,255,255,0.3);transform:translateZ(1px);}
+.nsth-ped .ped-art{position:absolute;left:50%;bottom:188px;transform:translateX(-50%);width:160px;height:190px;
+  display:flex;align-items:flex-end;justify-content:center;}
+.nsth-ped .ped-art img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 16px rgba(60,10,28,0.3));}
+.nsth-ped .ped-art .ped-ph{width:120px;height:150px;border:2px dashed rgba(122,15,36,0.45);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--B);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#7a1530;opacity:0.65;background:rgba(255,255,255,0.3);padding:0.5rem;}
+.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:352px;width:190px;background:rgba(247,221,228,0.82);backdrop-filter:blur(4px);
+  border-radius:12px;padding:0.8rem 1rem;font-family:var(--B);font-size:11.5px;line-height:1.45;color:#7a1530;box-shadow:0 8px 20px rgba(122,15,36,0.14);text-align:left;z-index:6;}
+.nsth-ped .ped-tag b{color:#86204e;}
+.nsth-ped .ped-art{position:absolute;left:50%;bottom:188px;transform:translateX(-50%);width:160px;height:150px;
+  display:flex;align-items:flex-end;justify-content:center;z-index:2;}
+.nsth-stage-hint{font-family:var(--B);font-size:13px;font-weight:600;letter-spacing:0.04em;color:#c2683f;margin-top:1.2rem;}
+/* DETAIL pages */
+.nsth-detail{position:relative;min-height:100vh;padding:2rem 3rem 5rem;scroll-margin-top:var(--nh);
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 16%, rgba(250,228,234,0.9) 0%, transparent 60%),
+    linear-gradient(160deg,#fbeef1 0%,#f6e2e7 45%,#f1d8de 100%);}
+.nsth-d-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:2rem;flex-wrap:wrap;}
+.nsth-back{display:inline-flex;align-items:center;gap:0.7rem;border:2px solid #7a1530;border-radius:999px;background:transparent;
+  font-family:var(--B);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#7a1530;padding:12px 22px;cursor:pointer;transition:all .3s;}
 .nsth-back:hover{background:#7a1530;color:var(--ivory);}
-/* category intro — slide 15 */
-.nsth-cat-intro{margin-bottom:2.8rem;padding:0 0.5rem;}
-.nsth-cat-intro .ci-head{text-align:center;margin-bottom:1.8rem;}
-.nsth-cat-intro .ci-num{font-family:var(--F);font-size:clamp(1.6rem,3vw,2.4rem);color:#7a1530;line-height:1.1;}
-.nsth-cat-intro .ci-sub{font-family:var(--B);font-size:clamp(0.85rem,1.1vw,1rem);color:#7a1530;opacity:0.85;margin-top:0.35rem;font-weight:500;}
-.nsth-cat-intro .ci-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch;}
-.nsth-cat-intro .ci-text{border:1.5px solid #7a1530;border-radius:4px;padding:1.6rem 1.8rem;background:rgba(255,248,250,0.45);
-  font-family:var(--B);font-size:clamp(0.82rem,1vw,0.95rem);line-height:1.85;color:#5a1226;text-align:justify;}
-.nsth-cat-intro .ci-img{border:3px solid #d4a84a;border-radius:4px;overflow:hidden;background:#fff;min-height:220px;}
-.nsth-cat-intro .ci-img img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px;}
-/* artifact viewer — slide 17–18 */
-.nsth-d-grid{display:grid;grid-template-columns:1.05fr 0.95fr;gap:2.5rem;align-items:start;position:relative;}
-.nsth-d-right{display:flex;flex-direction:column;gap:1.2rem;}
-.nsth-tabs{display:flex;gap:0.75rem;background:transparent;border-radius:0;padding:0;margin:0;}
-.nsth-tab{border:2px solid #c07a8a;border-radius:14px;background:transparent;
-  font-family:var(--B);font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#9b3552;padding:13px 28px;cursor:pointer;transition:all .3s;min-height:46px;}
-.nsth-tab.active{background:#fbeef1;border-color:#fbeef1;color:#7a1530;box-shadow:0 4px 16px rgba(122,15,36,0.1);}
-.nsth-tab:hover:not(.active){background:rgba(255,255,255,0.35);}
+.nsth-tabs{display:flex;background:rgba(244,210,218,0.6);border-radius:999px;padding:5px;gap:4px;}
+.nsth-tab{border:none;background:transparent;border-radius:999px;font-family:var(--B);font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#9b3552;padding:12px 30px;cursor:pointer;transition:all .3s;}
+.nsth-tab.active{background:#fbeef1;color:#7a1530;box-shadow:0 2px 8px rgba(122,15,36,0.12);}
+.nsth-d-grid{display:grid;grid-template-columns:0.92fr 1.08fr;gap:3rem;align-items:start;position:relative;}
+/* carousel */
 .nsth-carousel{position:relative;}
-.nsth-car-img{width:100%;aspect-ratio:1/1;border-radius:24px;overflow:hidden;background:#1a1010;
-  border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 22px 44px rgba(90,15,34,0.2);}
+.nsth-car-img{width:100%;aspect-ratio:4/3.3;border-radius:22px;overflow:hidden;background:rgba(122,15,36,0.06);
+  border:1px dashed rgba(122,15,36,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(122,15,36,0.14);}
 .nsth-car-img img{width:100%;height:100%;object-fit:cover;}
-.nsth-car-ph{font-family:var(--B);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#fbeef1;opacity:0.55;text-align:center;padding:1rem;}
-.nsth-car-ctrl{display:flex;align-items:center;gap:1rem;margin-top:1rem;}
-.nsth-car-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid #7a1530;background:transparent;color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;flex-shrink:0;}
+.nsth-car-ph{font-family:var(--B);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7a1530;opacity:0.55;text-align:center;padding:1rem;}
+.nsth-car-ctrl{display:flex;align-items:center;gap:1.2rem;margin-top:1.1rem;}
+.nsth-car-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid #7a1530;background:transparent;color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
 .nsth-car-btn:hover{background:#7a1530;color:var(--ivory);}
-.nsth-car-dots{display:flex;gap:0.55rem;margin-left:auto;align-items:center;}
-.nsth-dot{width:10px;height:10px;border-radius:50%;background:rgba(122,15,36,0.22);cursor:pointer;transition:all .3s;}
-.nsth-dot.active{background:#c2683f;transform:scale(1.2);}
-.nsth-tl{display:flex;align-items:center;justify-content:center;gap:0.35rem;margin-bottom:0.2rem;padding:0.5rem 0;}
-.nsth-tl-y{font-family:var(--B);font-size:0.95rem;color:#c07a8a;opacity:0.65;font-weight:500;}
-.nsth-tl-y.cur{font-family:var(--F);font-size:clamp(1.8rem,3vw,2.35rem);color:#7a1530;opacity:1;font-weight:400;padding:0 0.15rem;}
-.nsth-tl-sep{width:1px;height:22px;background:rgba(122,15,36,0.22);margin:0 0.15rem;}
-.nsth-map{position:relative;background:rgba(252,228,234,0.65);border-radius:14px;padding:1.2rem 1.4rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:130px;}
-.nsth-map .nsth-region{font-family:var(--B);font-size:15px;color:#5a1226;font-weight:600;}
-.nsth-map-img{height:110px;width:auto;object-fit:contain;}
-.nsth-info{background:var(--burg);border-radius:14px;padding:1.5rem 1.6rem;color:#f8e6e6;}
-.nsth-info-row{display:grid;grid-template-columns:auto 12px 1fr;gap:0.35rem;margin-bottom:0.8rem;font-family:var(--B);font-size:13px;line-height:1.55;align-items:start;}
+.nsth-car-dots{display:flex;gap:0.6rem;margin-left:auto;}
+.nsth-dot{width:11px;height:11px;border-radius:50%;background:rgba(122,15,36,0.25);cursor:pointer;transition:all .3s;}
+.nsth-dot.active{background:#c2683f;transform:scale(1.15);}
+/* right pane */
+.nsth-tl{display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:1.3rem;}
+.nsth-tl-y{font-family:var(--F);font-size:1.2rem;color:#c07a8a;opacity:0.7;}
+.nsth-tl-y.cur{font-size:1.9rem;color:#7a1530;opacity:1;font-weight:400;}
+.nsth-tl-sep{width:1px;height:26px;background:rgba(122,15,36,0.25);}
+.nsth-map{position:relative;background:rgba(248,210,220,0.5);border-radius:16px;padding:1.6rem 1.8rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.2rem;min-height:150px;}
+.nsth-map .nsth-region{font-family:var(--B);font-size:15px;color:#5a1226;font-weight:500;}
+.nsth-map svg{height:130px;width:auto;}
+.nsth-info{background:#5a0f22;border-radius:14px;padding:1.4rem 1.6rem;color:#f8e6e6;}
+.nsth-info-row{display:grid;grid-template-columns:auto 14px 1fr;gap:0.4rem;margin-bottom:0.85rem;font-family:var(--B);font-size:13.5px;line-height:1.5;align-items:start;}
 .nsth-info-row:last-child{margin-bottom:0;}
 .nsth-info-row .il{color:#f0c9d2;font-weight:600;white-space:nowrap;}
-.nsth-info-row .iv{color:#E0A576;font-weight:600;}
+.nsth-info-row .iv{color:#f3a06a;font-weight:600;}
 .nsth-info-row.strong .iv{color:#fff;font-weight:700;}
-.nsth-story{background:#530F1E;border-radius:14px;padding:2.4rem 2.6rem;color:#fff;font-family:var(--B);font-size:14px;line-height:1.9;
-  max-height:min(430px,52vh);overflow-y:auto;scrollbar-width:thin;scrollbar-color:rgba(255,255,255,0.35) transparent;}
-.nsth-story p{margin-bottom:1.1rem;}
+/* story tab */
+.nsth-story{background:#5a0f22;border-radius:16px;padding:1.8rem 2rem;color:#f8e6e6;font-family:var(--B);font-size:14.5px;line-height:1.75;
+  max-height:430px;overflow-y:auto;}
+.nsth-story p{margin-bottom:1rem;}
 .nsth-story p:last-child{margin-bottom:0;}
 .nsth-tabpane{display:none;}
 .nsth-tabpane.active{display:block;}
-.nsth-art-nav{display:flex;align-items:center;justify-content:center;gap:1.2rem;margin-top:2rem;padding-top:1rem;}
-.nsth-art-nav button{width:42px;height:42px;border-radius:50%;border:1.5px solid #7a1530;background:rgba(255,255,255,0.45);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
-.nsth-art-nav button:hover{background:#7a1530;color:var(--ivory);}
-.nsth-art-counter{font-family:var(--B);font-size:12px;font-weight:600;letter-spacing:0.08em;color:#9b3552;opacity:0.85;min-width:4rem;text-align:center;}
+/* next-artifact arrow */
+.nsth-next{position:absolute;top:46%;right:-1.6rem;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  border:1.5px solid #7a1530;background:rgba(255,255,255,0.5);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:5;}
+.nsth-next:hover{background:#7a1530;color:var(--ivory);}
+.nsth-prev{position:absolute;top:46%;left:-1.6rem;transform:translateY(-50%);width:46px;height:46px;border-radius:50%;
+  border:1.5px solid #7a1530;background:rgba(255,255,255,0.5);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;z-index:5;}
+.nsth-prev:hover{background:#7a1530;color:var(--ivory);}
+.nsth-art-counter{position:absolute;bottom:-2.2rem;right:0;font-family:var(--B);font-size:12px;font-weight:600;letter-spacing:0.08em;color:#9b3552;opacity:0.8;}
+.nsth-map-img{height:130px;width:auto;object-fit:contain;}
 .nsth-artview{position:relative;}
-.nsth-d-top{display:none;}
-.nsth-slide-counter{text-align:center;font-family:var(--B);font-size:11px;letter-spacing:0.12em;color:#9b3552;opacity:0.8;margin-top:1rem;}
-.nsth-deck{min-height:calc(100vh - var(--nh));padding:5.5rem 2.5rem 5rem;position:relative;}
-.nsth-deck-inner{max-width:1280px;margin:0 auto;position:relative;}
-.nsth-deck .nsth-crumb{position:static;margin-bottom:1rem;}
-.nsth-deck-back{display:inline-flex;align-items:center;gap:0.65rem;border:2px solid #7a1530;border-radius:999px;background:transparent;color:#7a1530;font-family:var(--B);font-size:11px;font-weight:600;letter-spacing:0.06em;padding:0.55rem 1.15rem;cursor:pointer;margin-bottom:1.5rem;transition:all .3s;}
-.nsth-deck-back:hover{background:#7a1530;color:var(--ivory);}
-.nsth-slide-nav{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:30;width:46px;height:46px;border-radius:50%;border:1.5px solid #7a1530;background:rgba(255,255,255,0.55);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(83,15,30,0.12);transition:all .3s;}
-.nsth-slide-nav:hover{background:#7a1530;color:var(--ivory);}
-.nsth-slide-nav.prev{right:auto;left:1.25rem;}
-.nsth-slide-nav:disabled{opacity:0.25;pointer-events:none;}
-.nsth-deco-line{display:flex;align-items:center;justify-content:center;gap:0.55rem;margin:1rem 0 2rem;}
-.nsth-deco-line::before,.nsth-deco-line::after{content:'';flex:1;max-width:140px;height:1px;background:rgba(122,15,36,0.22);}
-.nsth-deco-line i{display:inline-block;width:7px;height:7px;background:#7a1530;transform:rotate(45deg);opacity:0.7;}
-.nsth-slide-intro .ci-head{text-align:center;}
-.nsth-slide-intro .ci-num{font-family:var(--F);font-size:clamp(1.5rem,2.8vw,2.2rem);}
-.nsth-slide-intro .ci-sub{font-family:var(--B);font-size:clamp(0.82rem,1.05vw,0.95rem);text-transform:lowercase;}
-.nsth-slide-intro .ci-text{border:1.5px solid transparent;border-left:2px solid #7a1530;border-bottom:2px solid #7a1530;border-radius:0;background:rgba(255,248,250,0.35);}
-.nsth-slide-artifact .nsth-d-grid{margin-top:0.5rem;}
-@media(max-width:768px){
-  .nsth-deck{padding:5rem 1.2rem 4.5rem;}
-  .nsth-slide-nav{width:40px;height:40px;right:0.65rem;}
-  .nsth-slide-nav.prev{left:0.65rem;}
-}
 @media(max-width:980px){
   .nsth-prev{position:static;transform:none;margin:0.5rem auto 0;}
   .nsth-art-counter{position:static;text-align:center;margin-top:0.8rem;}
@@ -1394,29 +1355,18 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 .nsth-d-scrolldown{display:flex;justify-content:center;margin-top:2rem;}
 .nsth-d-scrolldown button{width:42px;height:42px;border-radius:50%;border:1.5px solid #9b2f48;background:rgba(255,255,255,0.4);color:#9b2f48;cursor:pointer;display:flex;align-items:center;justify-content:center;animation:nsthBob 2.2s ease-in-out infinite;}
 @media(max-width:980px){
-  .nsth-hero{padding:5rem 1.4rem 2.5rem;}
-  .nsth-hero-shell{grid-template-columns:1fr;gap:2rem;min-height:auto;}
-  .nsth-hero-copy{padding:0 0 0.5rem;text-align:center;}
-  .nsth-hero-title .l2{padding-left:0.5em;}
-  .nsth-hero-cta{margin-top:1.2rem;padding-top:0;text-align:center;}
-  .nsth-stage-wrap{min-height:auto;}
-  .nsth-stage{min-height:auto;display:flex;flex-direction:column;gap:3rem;align-items:center;padding:1rem 0 0;}
-  .nsth-ped{position:static!important;width:min(280px,88vw);transform:none!important;}
-  .nsth-ped .ped-tag{position:static;opacity:1;visibility:visible;transform:none;width:100%;margin-bottom:0.75rem;pointer-events:auto;}
-  .nsth-ped .ped-stand{width:100%;}
-  .nsth-ped .ped-art{width:min(170px,52vw);height:200px;margin-bottom:-24px;}
-  .nsth-ped[data-idx="1"] .ped-art{width:min(190px,58vw);height:220px;}
-  .nsth-ped .ped-col{width:150px;}
-  .nsth-ped[data-idx="0"] .ped-col,.nsth-ped[data-idx="1"] .ped-col,.nsth-ped[data-idx="2"] .ped-col{height:150px;}
-  .nsth-stage-rotctrl{display:flex;justify-content:center;opacity:1;margin-top:1rem;}
-  .nsth-d-grid{grid-template-columns:1fr;gap:1.8rem;}
-  .nsth-cat-intro .ci-grid{grid-template-columns:1fr;}
-  .nsth-tabs{width:100%;}
-  .nsth-tab{flex:1;padding:12px 10px;font-size:10px;}
-  .nsth-map-img{height:90px;}
+  .nsth-hero-inner{grid-template-columns:1fr;gap:1.6rem;}
+  .nsth-hero-title .l2{padding-left:1.2em;}
+  .nsth-d-grid{grid-template-columns:1fr;gap:2rem;}
+  .nsth-next{position:static;transform:none;margin:0.5rem auto 0;}
+  .nsth-stage{height:auto;display:flex;flex-direction:column;gap:2.8rem;align-items:center;}
+  .nsth-ped{position:static!important;width:230px;display:flex;flex-direction:column;align-items:center;transform:none!important;}
+  .nsth-ped .ped-tag{position:static;transform:none;width:100%;margin-bottom:0.9rem;left:auto;right:auto;bottom:auto;}
+  .nsth-ped .ped-art{position:static;transform:none;width:150px;height:160px;margin-bottom:-14px;}
+  .nsth-ped .ped-col{width:160px;height:150px;}
 }
 @media(max-width:768px){
-  .nsth-hero{padding:5rem 1.2rem 2rem;}
+  .nsth-hero,.nsth-stage-sec{padding:5.5rem 1.3rem 3rem;}
   .nsth-detail{padding:1.5rem 1.2rem 4rem;}
   .nsth-crumb{left:1.1rem;top:1.1rem;font-size:9px;}
   .nsth-d-top{flex-direction:column;align-items:stretch;}
@@ -5413,27 +5363,109 @@ body.ds-modal-lock{overflow:hidden;}
 
 <!-- ===== CHUYÊN ĐỀ: NỮ SẮC THIÊN HƯƠNG VƯƠNG SỢI CHỈ ===== -->
 <div class="page nsth-cloth" id="page-nu-sac-thien-huong">
-  <div class="nsth-deck">
-    <div class="nsth-deck-inner">
-      <div class="nsth-crumb">
-        <span class="nc-l" onclick="showPage('exhibition')">Chuyên mục</span><span class="nc-sep">&#9656;</span>
-        <span class="nc-l" onclick="switchBranch('xua');showPage('exhibition')">Xưa</span><span class="nc-sep">&#9656;</span>
-        <span class="nc-cur">Nữ Sắc Thiên Hương Vương Sợi Chỉ</span>
-      </div>
-      <button type="button" class="nsth-deck-back" onclick="switchBranch('xua');showPage('exhibition')">
-        <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Quay lại trang trước
-      </button>
-      <div id="nsthSlideDeck"></div>
-      <p class="nsth-slide-counter" id="nsthSlideCounter"></p>
+  <!-- HERO -->
+  <section class="nsth-sec nsth-hero">
+    <div class="nsth-crumb">
+      <span class="nc-l" onclick="showPage('exhibition')">Chuyên mục</span><span class="nc-sep">&#9656;</span>
+      <span class="nc-l" onclick="switchBranch('xua');showPage('exhibition')">Xưa</span><span class="nc-sep">&#9656;</span>
+      <span class="nc-cur">Nữ Sắc Thiên Hương Vương Sợi Chỉ</span>
     </div>
-    <button type="button" class="nsth-slide-nav prev" id="nsthSlidePrev" onclick="nsthDeckStep(-1)" aria-label="Trang trước">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
-    <button type="button" class="nsth-slide-nav" id="nsthSlideNext" onclick="nsthDeckStep(1)" aria-label="Trang tiếp">
-      <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </button>
+    
+    <div class="nsth-thread t-top"><span class="tdash"></span><span class="tdia"></span><span class="tdash"></span><span class="tdia"></span><span class="tdash"></span></div>
+    <div class="nsth-thread t-mid"><span class="tdia"></span><span class="tdash"></span><span class="tdia"></span><span class="tdash"></span></div>
+    <div class="nsth-hero-inner">
+      <h1 class="nsth-hero-title"><span class="l1">Nữ sắc thiên hương</span><span class="l2">Vương sợi chỉ</span></h1>
+      <p class="nsth-hero-text">Trong đời sống của các dân tộc Việt Nam, tính nữ không chỉ được thể hiện qua vai trò của người phụ nữ trong gia đình và xã hội mà còn được gửi gắm vào trang phục, hoa văn và những chi tiết thủ công được lưu truyền qua nhiều thế hệ…</p>
+    </div>
+    <div class="nsth-scrolldown" onclick="document.getElementById('nsthStageAnchor').scrollIntoView({behavior:'smooth',block:'start'})">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </section>
+
+  <!-- STAGE: 3 cột 3D -->
+  <section class="nsth-sec nsth-stage-sec" id="nsthStageAnchor" style="scroll-margin-top:var(--nh);">
+    <div class="nsth-stage-head">
+      <div class="sh-title"><span class="l1">Nữ sắc thiên hương</span><span class="l2">Vương sợi chỉ</span></div>
+    </div>
+    <div class="nsth-stage" id="nsthStage">
+      <div class="nsth-ped tag-left" style="left:4%;" data-art="theu-tay-tho-cam" data-idx="0">
+        <div class="ped-tag"><b>Chi tiết thêu tay thổ cẩm:</b> Sự kiên nhẫn và thiên chức nuôi dưỡng</div>
+        <div class="ped-art"><img src="assets/nsth/ts-dsc-1.jpg" alt="Chi tiết thêu tay thổ cẩm"></div>
+        <div class="ped-col"></div>
+      </div>
+      <div class="nsth-ped " style="left:50%;transform:translateX(-50%);" data-art="hoa-tiet-phon-thuc" data-idx="1">
+        <div class="ped-tag"><b>Họa tiết và biểu tượng phồn thực:</b> Sự kết nối với thiên nhiên và khả năng sinh thành</div>
+        <div class="ped-art"><img src="assets/nsth/hoa-hmong-1.jpg" alt="Họa tiết và biểu tượng phồn thực"></div>
+        <div class="ped-col"></div>
+      </div>
+      <div class="nsth-ped tag-left" style="right:4%;" data-art="trang-suc-bua-ho-menh" data-idx="2">
+        <div class="ped-tag"><b>Trang sức và bùa hộ mệnh:</b> Bản năng bảo vệ và đời sống tâm linh</div>
+        <div class="ped-art"><img src="assets/nsth/ts-vong-co-dao.jpg" alt="Trang sức và bùa hộ mệnh"></div>
+        <div class="ped-col"></div>
+      </div>
+    </div>
+    <div class="nsth-stage-rotctrl">
+      <button class="nsth-rotbtn" onclick="nsthRotate(-1)" title="Xoay ngược chiều kim đồng hồ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7M3 3v4h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="nsth-rotlbl">Xoay 3D</span>
+      <button class="nsth-rotbtn" onclick="nsthRotate(1)" title="Xoay theo chiều kim đồng hồ"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M21 12a9 9 0 1 1-3-6.7M21 3v4h-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <p class="nsth-stage-hint">Nhấn để tìm hiểu thêm</p>
+  </section>
+</div>
+
+<div class="page nsth-detail" id="page-theu-tay-tho-cam">
+  <div class="nsth-crumb" style="position:static;margin-bottom:1.1rem;">
+    <span class="nc-l" onclick="showPage('exhibition')">Chuyên mục</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="switchBranch('xua');showPage('exhibition')">Xưa</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="showPage('nu-sac-thien-huong')">Nữ Sắc Thiên Hương Vương Sợi Chỉ</span>
   </div>
+  <div class="nsth-d-top">
+    <button class="nsth-back" onclick="showPage('nu-sac-thien-huong')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quay lại trang trước
+    </button>
+    <div class="nsth-tabs">
+      <button class="nsth-tab active" onclick="nsthApplyTab('theu-tay-tho-cam','intro',true)">Giới thiệu</button>
+      <button class="nsth-tab" onclick="nsthApplyTab('theu-tay-tho-cam','story',true)">Câu chuyện</button>
+    </div>
+  </div>
+  <div class="nsth-artview" id="nsthView-theu-tay-tho-cam" data-tab="intro"></div>
+</div>
+<div class="page nsth-detail" id="page-hoa-tiet-phon-thuc">
+  <div class="nsth-crumb" style="position:static;margin-bottom:1.1rem;">
+    <span class="nc-l" onclick="showPage('exhibition')">Chuyên mục</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="switchBranch('xua');showPage('exhibition')">Xưa</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="showPage('nu-sac-thien-huong')">Nữ Sắc Thiên Hương Vương Sợi Chỉ</span>
+  </div>
+  <div class="nsth-d-top">
+    <button class="nsth-back" onclick="showPage('nu-sac-thien-huong')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quay lại trang trước
+    </button>
+    <div class="nsth-tabs">
+      <button class="nsth-tab active" onclick="nsthApplyTab('hoa-tiet-phon-thuc','intro',true)">Giới thiệu</button>
+      <button class="nsth-tab" onclick="nsthApplyTab('hoa-tiet-phon-thuc','story',true)">Câu chuyện</button>
+    </div>
+  </div>
+  <div class="nsth-artview" id="nsthView-hoa-tiet-phon-thuc" data-tab="intro"></div>
+</div>
+<div class="page nsth-detail" id="page-trang-suc-bua-ho-menh">
+  <div class="nsth-crumb" style="position:static;margin-bottom:1.1rem;">
+    <span class="nc-l" onclick="showPage('exhibition')">Chuyên mục</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="switchBranch('xua');showPage('exhibition')">Xưa</span><span class="nc-sep">&#9656;</span>
+    <span class="nc-l" onclick="showPage('nu-sac-thien-huong')">Nữ Sắc Thiên Hương Vương Sợi Chỉ</span>
+  </div>
+  <div class="nsth-d-top">
+    <button class="nsth-back" onclick="showPage('nu-sac-thien-huong')">
+      <svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Quay lại trang trước
+    </button>
+    <div class="nsth-tabs">
+      <button class="nsth-tab active" onclick="nsthApplyTab('trang-suc-bua-ho-menh','intro',true)">Giới thiệu</button>
+      <button class="nsth-tab" onclick="nsthApplyTab('trang-suc-bua-ho-menh','story',true)">Câu chuyện</button>
+    </div>
+  </div>
+  <div class="nsth-artview" id="nsthView-trang-suc-bua-ho-menh" data-tab="intro"></div>
 </div>
 
 
@@ -6101,113 +6133,146 @@ const NSTH_CAT_INTRO={
     text:"Trang sức và các vật phẩm tâm linh trong đời sống của phụ nữ các dân tộc thường gắn với niềm tin bảo vệ, may mắn và sự che chở cho gia đình. Không chỉ là vật trang sức, những chiếc vòng cổ, chuỗi hạt hay bùa hộ mệnh còn là biểu tượng của bản năng nuôi dưỡng, gìn giữ và kết nối đời sống vật chất với thế giới tâm linh.",
     image:"assets/nsth/ts-vong-co-dao.jpg"}
 };
-function nsthBuildSlides(){
-  const order=['theu-tay-tho-cam','hoa-tiet-phon-thuc','trang-suc-bua-ho-menh'];
-  const slides=[];
-  order.forEach(catId=>{
-    const intro=NSTH_CAT_INTRO[catId];
-    if(intro)slides.push({type:'intro',catId,intro});
-    (NSTH_GROUPS[catId]||[]).forEach((art,artIdx)=>slides.push({type:'artifact',catId,artIdx,art}));
-  });
-  return slides;
-}
-let nsthDeckIdx=0,nsthDeckSlides=null;
-let nsthDeckState={};
-function nsthDeckSt(){
-  if(!nsthDeckState[nsthDeckIdx])nsthDeckState[nsthDeckIdx]={img:0,tab:'intro'};
-  return nsthDeckState[nsthDeckIdx];
-}
-function nsthBuildArtifactHtml(art,st){
-  const imgIdx=Math.max(0,Math.min(st.img,art.images.length-1));
-  const imgUrl=art.images[imgIdx];
-  const imgHtml=imgUrl?'<img src="'+imgUrl+'" alt="">':'<span class="nsth-car-ph">Ảnh hiện vật<br>('+(imgIdx+1)+' / '+art.images.length+')</span>';
-  let dots=''; for(let i=0;i<art.images.length;i++){ dots+='<span class="nsth-dot'+(i===imgIdx?' active':'')+'" onclick="nsthDeckSetImg('+i+')"></span>'; }
-  let tl=''; art.years.forEach((y,k)=>{ tl+='<span class="nsth-tl-y'+(k===2?' cur':'')+'">'+y+'</span>'; if(k<4)tl+='<span class="nsth-tl-sep"></span>'; });
-  const rows=[['Loại hiện vật',art.loai,true],['Chất liệu',art.chatlieu,false],['Kỹ thuật',art.kythuat,false]];
+const nsthView={}; /* id -> {art:idx, img:idx} */
+function nsthEnsure(id){ if(!nsthView[id]) nsthView[id]={art:0,img:0}; return nsthView[id]; }
+function nsthRenderView(id){
+  const grp=NSTH_GROUPS[id]; if(!grp)return;
+  const st=nsthEnsure(id);
+  if(st.art>=grp.length)st.art=0; if(st.art<0)st.art=grp.length-1;
+  const a=grp[st.art];
+  if(st.img>=a.images.length)st.img=0; if(st.img<0)st.img=a.images.length-1;
+  const root=document.getElementById('nsthView-'+id); if(!root)return;
+  // carousel image
+  const imgUrl=a.images[st.img];
+  const imgHtml = imgUrl ? '<img src="'+imgUrl+'" alt="">' : '<span class="nsth-car-ph">Ảnh hiện vật<br>('+(st.img+1)+' / '+a.images.length+')</span>';
+  // dots
+  let dots=''; for(let i=0;i<a.images.length;i++){ dots+='<span class="nsth-dot'+(i===st.img?' active':'')+'" onclick="nsthSetImg(\''+id+'\','+i+')"></span>'; }
+  // timeline
+  let tl=''; a.years.forEach((y,k)=>{ tl+='<span class="nsth-tl-y'+(k===2?' cur':'')+'">'+y+'</span>'; if(k<4)tl+='<span class="nsth-tl-sep"></span>'; });
+  // info rows
+  const rows=[['Loại hiện vật',a.loai,true],['Chất liệu',a.chatlieu,false],['Kỹ thuật',a.kythuat,false]];
   let info=''; rows.forEach(([l,v,st2])=>{ info+='<div class="nsth-info-row'+(st2?' strong':'')+'"><span class="il">'+l+'</span><span>:</span><span class="iv">'+(v||'—')+'</span></div>'; });
-  let story=''; art.story.forEach(p=>story+='<p>'+p+'</p>');
-  const tab=st.tab||'intro';
-  return '<div class="nsth-slide-artifact"><div class="nsth-d-grid">'
-    +'<div class="nsth-carousel"><div class="nsth-car-img" id="nsthDeckCarImg">'+imgHtml+'</div>'
-    +'<div class="nsth-car-ctrl">'
-    +'<button class="nsth-car-btn" onclick="nsthDeckImgStep(-1)" aria-label="Ảnh trước"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
-    +'<button class="nsth-car-btn" onclick="nsthDeckImgStep(1)" aria-label="Ảnh sau"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
-    +'<div class="nsth-car-dots">'+dots+'</div></div></div>'
-    +'<div class="nsth-d-right"><div class="nsth-tabs">'
-    +'<button class="nsth-tab'+(tab==='intro'?' active':'')+'" onclick="nsthDeckTab(\'intro\')">Giới thiệu</button>'
-    +'<button class="nsth-tab'+(tab==='story'?' active':'')+'" onclick="nsthDeckTab(\'story\')">Câu chuyện</button></div>'
-    +'<div class="nsth-tabpane'+(tab==='intro'?' active':'')+'" id="nsthDeckPaneIntro">'
-    +'<div class="nsth-tl">'+tl+'</div>'
-    +'<div class="nsth-map"><span class="nsth-region">'+art.region+'</span><img class="nsth-map-img" src="'+(NSTH_MAPS[art.map]||'')+'" alt="Bản đồ '+art.region+'"></div>'
-    +'<div class="nsth-info">'+info+'</div></div>'
-    +'<div class="nsth-tabpane'+(tab==='story'?' active':'')+'" id="nsthDeckPaneStory"><div class="nsth-story">'+story+'</div></div>'
-    +'</div></div></div>';
+  // story
+  let story=''; a.story.forEach(p=>story+='<p>'+p+'</p>');
+  const counter=(st.art+1)+' / '+grp.length;
+  root.innerHTML = `
+    <div class="nsth-d-grid">
+      <div class="nsth-carousel">
+        <div class="nsth-car-img" id="nsthCarImg-${id}">${imgHtml}</div>
+        <div class="nsth-car-ctrl">
+          <button class="nsth-car-btn" onclick="nsthStepImg('${id}',-1)" aria-label="Ảnh trước"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="nsth-car-btn" onclick="nsthStepImg('${id}',1)" aria-label="Ảnh sau"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <div class="nsth-car-dots">${dots}</div>
+        </div>
+      </div>
+      <div class="nsth-d-right">
+        <div class="nsth-tabpane active" id="nsthPane-${id}-intro">
+          <div class="nsth-tl">${tl}</div>
+          <div class="nsth-map"><span class="nsth-region">${a.region}</span><img class="nsth-map-img" src="${NSTH_MAPS[a.map]||''}" alt="Bản đồ ${a.region}"></div>
+          <div class="nsth-info">${info}</div>
+        </div>
+        <div class="nsth-tabpane" id="nsthPane-${id}-story"><div class="nsth-story">${story}</div></div>
+      </div>
+      <button class="nsth-next" title="Hiện vật tiếp theo" onclick="nsthStepArt('${id}',1)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="nsth-prev" title="Hiện vật trước" onclick="nsthStepArt('${id}',-1)">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <div class="nsth-art-counter">${counter}</div>
+    </div>`;
+  // gắn lại trạng thái tab hiện tại
+  const tab=root.dataset.tab||'intro';
+  nsthApplyTab(id,tab,false);
+  // vuốt để đổi ảnh
+  nsthAttachSwipe(id);
 }
-function nsthRenderDeck(){
-  if(!nsthDeckSlides)nsthDeckSlides=nsthBuildSlides();
-  const slides=nsthDeckSlides;
-  if(!slides.length)return;
-  if(nsthDeckIdx<0)nsthDeckIdx=0;
-  if(nsthDeckIdx>=slides.length)nsthDeckIdx=slides.length-1;
-  const slide=slides[nsthDeckIdx];
-  const deck=document.getElementById('nsthSlideDeck');
-  if(!deck)return;
-  let html='';
-  if(slide.type==='intro'){
-    const c=slide.intro;
-    html='<div class="nsth-cat-intro nsth-slide-intro"><div class="ci-head"><div class="ci-num">'+c.num+'. '+c.title+'</div><div class="ci-sub">'+c.subtitle+'</div></div>'
-      +'<div class="nsth-deco-line"><i></i><i></i><i></i></div>'
-      +'<div class="ci-grid"><div class="ci-text">'+c.text+'</div>'
-      +'<div class="ci-img"><img src="'+c.image+'" alt="'+c.title+'" loading="lazy"></div></div></div>';
-  }else{
-    html=nsthBuildArtifactHtml(slide.art,nsthDeckSt());
+function nsthApplyTab(id,which,clickFromBtn){
+  const root=document.getElementById('nsthView-'+id); if(root)root.dataset.tab=which;
+  document.querySelectorAll('#page-'+id+' .nsth-tab').forEach((b,i)=>{ b.classList.toggle('active', (which==='intro'&&i===0)||(which==='story'&&i===1)); });
+  const ip=document.getElementById('nsthPane-'+id+'-intro'); const sp=document.getElementById('nsthPane-'+id+'-story');
+  if(ip)ip.classList.toggle('active',which==='intro'); if(sp)sp.classList.toggle('active',which==='story');
+}
+function nsthTabNew(e,id,which){ nsthApplyTab(id,which,true); }
+function nsthStepArt(id,dir){ const st=nsthEnsure(id); st.art+=dir; st.img=0; const root=document.getElementById('nsthView-'+id); if(root)root.dataset.tab='intro'; nsthRenderView(id); }
+function nsthSetImg(id,i){ const st=nsthEnsure(id); st.img=i; nsthRenderView(id); }
+function nsthStepImg(id,dir){ const st=nsthEnsure(id); st.img+=dir; nsthRenderView(id); }
+function nsthAttachSwipe(id){
+  const el=document.getElementById('nsthCarImg-'+id); if(!el||el.dataset.sw)return; el.dataset.sw='1';
+  let sx=0,active=false;
+  el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;active=true;},{passive:true});
+  el.addEventListener('touchend',e=>{ if(!active)return;active=false; const dx=e.changedTouches[0].clientX-sx; if(Math.abs(dx)>40){ nsthStepImg(id, dx<0?1:-1);} });
+}
+
+
+let nsthRot=0;
+function nsthRotate(dir){
+  nsthRot += dir*120;
+  document.querySelectorAll('#nsthStage .ped-col').forEach(c=>{ c.style.transform='rotateY('+nsthRot+'deg)'; });
+}
+function initNsthStage(){
+  const stage=document.getElementById('nsthStage');
+  if(!stage||stage.dataset.init)return;
+  stage.dataset.init='1';
+  const peds=[...stage.querySelectorAll('.nsth-ped')];
+  const slots=peds.map(p=>({left:p.style.left,right:p.style.right,transform:p.style.transform,tagLeft:p.classList.contains('tag-left')}));
+  function applySlot(p,si,animate){
+    p.style.transition=animate?'transform .4s cubic-bezier(.25,.8,.4,1),left .4s,right .4s':'';
+    p.style.left=slots[si].left||'auto';
+    p.style.right=slots[si].right||'auto';
+    p.style.transform=slots[si].transform||'';
+    p.classList.toggle('tag-left',slots[si].tagLeft);
+    p._slot=si;
   }
-  deck.innerHTML=html;
-  const cnt=document.getElementById('nsthSlideCounter');
-  if(cnt)cnt.textContent=(nsthDeckIdx+1)+' / '+slides.length;
-  const prev=document.getElementById('nsthSlidePrev'),next=document.getElementById('nsthSlideNext');
-  if(prev)prev.disabled=nsthDeckIdx<=0;
-  if(next)next.disabled=nsthDeckIdx>=slides.length-1;
-  nsthDeckAttachSwipe();
-}
-function nsthDeckStep(dir){
-  if(!nsthDeckSlides)nsthDeckSlides=nsthBuildSlides();
-  nsthDeckIdx+=dir;
-  if(nsthDeckIdx<0)nsthDeckIdx=0;
-  if(nsthDeckIdx>=nsthDeckSlides.length)nsthDeckIdx=nsthDeckSlides.length-1;
-  window.scrollTo(0,0);
-  nsthRenderDeck();
-}
-function nsthDeckTab(which){ const st=nsthDeckSt(); st.tab=which; nsthRenderDeck(); }
-function nsthDeckSetImg(i){ const st=nsthDeckSt(); st.img=i; nsthRenderDeck(); }
-function nsthDeckImgStep(dir){
-  const slide=nsthDeckSlides&&nsthDeckSlides[nsthDeckIdx];
-  if(!slide||slide.type!=='artifact')return;
-  const st=nsthDeckSt();
-  const n=slide.art.images.length||1;
-  st.img=(st.img+dir+n)%n;
-  nsthRenderDeck();
-}
-function nsthDeckAttachSwipe(){
-  const el=document.getElementById('nsthDeckCarImg');
-  if(el&&!el.dataset.sw){
-    el.dataset.sw='1';
-    let sx=0,active=false;
-    el.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;active=true;},{passive:true});
-    el.addEventListener('touchend',e=>{if(!active)return;active=false;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>40)nsthDeckImgStep(dx<0?1:-1);});
-  }
-  const deck=document.getElementById('nsthSlideDeck');
-  if(deck&&!deck.dataset.dsw){
-    deck.dataset.dsw='1';
-    let sx=0,active=false;
-    deck.addEventListener('touchstart',e=>{if(e.target.closest('.nsth-car-img'))return;sx=e.touches[0].clientX;active=true;},{passive:true});
-    deck.addEventListener('touchend',e=>{if(!active)return;active=false;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)nsthDeckStep(dx<0?1:-1);});
-  }
-}
-function nsthInitDeck(reset){
-  if(reset){nsthDeckIdx=0;nsthDeckState={};nsthDeckSlides=null;}
-  if(!nsthDeckSlides)nsthDeckSlides=nsthBuildSlides();
-  nsthRenderDeck();
+  peds.forEach((ped,index)=>{ped._slot=index;});
+  peds.forEach((ped)=>{
+    let startX,startY,moved=false,dragging=false;
+    const onDown=(e)=>{
+      if(window.innerWidth<=980)return; // mobile: xếp dọc, không kéo
+      dragging=true;moved=false;
+      const pt=e.touches?e.touches[0]:e;
+      startX=pt.clientX;startY=pt.clientY;
+      ped.classList.add('dragging');
+      document.addEventListener('mousemove',onMove);document.addEventListener('mouseup',onUp);
+      document.addEventListener('touchmove',onMove,{passive:false});document.addEventListener('touchend',onUp);
+    };
+    const onMove=(e)=>{
+      if(!dragging)return;
+      const pt=e.touches?e.touches[0]:e;
+      const dx=pt.clientX-startX,dy=pt.clientY-startY;
+      if(Math.abs(dx)>6||Math.abs(dy)>6)moved=true;
+      if(e.cancelable)e.preventDefault();
+      ped.style.transition='none';
+      ped.style.transform=(slots[ped._slot].transform||'')+` translate(${dx}px,${dy}px)`;
+      ped.style.zIndex=40;
+    };
+    const onUp=(e)=>{
+      if(!dragging)return;
+      dragging=false;ped.classList.remove('dragging');
+      document.removeEventListener('mousemove',onMove);document.removeEventListener('mouseup',onUp);
+      document.removeEventListener('touchmove',onMove);document.removeEventListener('touchend',onUp);
+      if(!moved){ applySlot(ped,ped._slot,false);ped.style.zIndex=''; showPage(ped.dataset.art);return; }
+      const pt=(e.changedTouches?e.changedTouches[0]:e);
+      let target=null,best=1e9;
+      peds.forEach((other)=>{
+        if(other===ped)return;
+        const r=other.getBoundingClientRect();
+        const cx=r.left+r.width/2, cy=r.top+r.height/2;
+        const d=Math.hypot(pt.clientX-cx,pt.clientY-cy);
+        if(d<best){best=d;target=other;}
+      });
+      if(target&&best<360){
+        const a=ped._slot,b=target._slot;
+        applySlot(target,a,true);
+        applySlot(ped,b,true);
+      }else{
+        applySlot(ped,ped._slot,true);
+      }
+      ped.style.zIndex='';
+    };
+    ped.addEventListener('mousedown',onDown);
+    ped.addEventListener('touchstart',onDown,{passive:true});
+  });
 }
 
 
@@ -6345,12 +6410,6 @@ document.addEventListener('keydown',e=>{
   }
   const chm=document.getElementById('chArtModal');
   if(chm&&chm.classList.contains('open'))return;
-  const nsthPg=document.getElementById('page-nu-sac-thien-huong');
-  if(nsthPg&&nsthPg.classList.contains('active')){
-    if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();nsthDeckStep(1);}
-    else if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();nsthDeckStep(-1);}
-    return;
-  }
   const mauPg=document.getElementById('page-mau');
   if(mauPg&&mauPg.classList.contains('active')){
     if(e.key==='ArrowRight'||e.key==='ArrowDown'){e.preventDefault();mauDeckStep(1);}
@@ -7428,7 +7487,8 @@ function showPage(id,anchor){
   if(id==='muon-mien')requestAnimationFrame(()=>mmmnInitDeck(true));
   if(id==='dang-sen')renderDangSen();
   if(id==='tam-tu-cua-me')renderTtmBubbles();
-  if(id==='nu-sac-thien-huong')requestAnimationFrame(()=>nsthInitDeck(true));
+  if(id==='nu-sac-thien-huong')requestAnimationFrame(initNsthStage);
+  if(typeof NSTH_GROUPS!=='undefined' && NSTH_GROUPS[id])nsthRenderView(id);
   if(id==='ngong-trong')startNgongClock();
   else stopNgongClock();
   if(id==='tha-sen'){pondInitialized=false;renderPond();const _pe=document.getElementById('mainPond');if(_pe){delete _pe.dataset.pzInit;}initPondPanZoom();}
