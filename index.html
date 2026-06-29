@@ -1395,7 +1395,7 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
   .nsth-d-grid{grid-template-columns:1fr;gap:2rem;}
   .nsth-next{position:static;transform:none;margin:0.5rem auto 0;}
   .nsth-stage{height:auto;display:flex;flex-direction:column;gap:2.8rem;align-items:center;}
-  .nsth-ped{position:static!important;width:240px;display:flex;flex-direction:column;align-items:center;transform:none!important;}
+  .nsth-ped{position:static!important;width:240px;display:flex;flex-direction:column;align-items:center;transform:none!important;touch-action:auto!important;cursor:pointer;}
   .nsth-ped::after{display:none;}
   .nsth-ped .ped-tag{position:static;transform:none;width:100%;min-height:0;margin-bottom:0.9rem;left:auto;right:auto;bottom:auto;}
   .nsth-ped .ped-art{position:static;transform:none!important;width:210px;height:230px;margin-bottom:-18px;}
@@ -6361,6 +6361,8 @@ function initNsthStage(){
     };
     ped.addEventListener('mousedown',onDown);
     ped.addEventListener('touchstart',onDown,{passive:true});
+    /* mobile: chạm để mở trang chi tiết (không dùng kéo) */
+    ped.addEventListener('click',()=>{ if(window.innerWidth<=980) showPage(ped.dataset.art); });
   });
 }
 
