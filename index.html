@@ -2275,6 +2275,8 @@ body.ds-modal-lock{overflow:hidden;}
     .mau-deck-slide{display:flex !important;width:100%;box-sizing:border-box;}
     #mau-hero.mau-deck-slide{display:grid !important;}
     .mau-slide-nav,.mau-slide-counter{display:none !important;}
+    /* bản gốc chỉ có breadcrumb trên cùng (hero), bỏ breadcrumb lặp ở các section */
+    .mau-deck-slide:not(#mau-hero) .mau-crumb{display:none !important;}
     .mau-slide-counter{position:absolute;top:1.2rem;right:2.6rem;z-index:8;font-family:var(--B);font-size:11px;letter-spacing:0.12em;color:#7a1f33;opacity:0.75;}
     .mau-slide-nav{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:30;width:46px;height:46px;border-radius:50%;border:1.5px solid #7a1530;background:rgba(255,255,255,0.55);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(83,15,30,0.12);transition:all .3s;}
     .mau-slide-nav:hover{background:#7a1530;color:var(--ivory);}
