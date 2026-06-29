@@ -1265,10 +1265,12 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 .nsth-stage-head .sh-title{font-family:var(--F);font-weight:400;line-height:1.0;color:#7a1530;}
 .nsth-stage-head .sh-title .l1{display:block;font-size:clamp(1.8rem,3.6vw,3.2rem);}
 .nsth-stage-head .sh-title .l2{display:block;font-size:clamp(1.5rem,3vw,2.6rem);padding-left:2em;color:#9b2f56;}
-.nsth-stage{position:relative;height:min(62vh,560px);margin-top:1rem;perspective:1400px;}
-.nsth-ped .ped-col{position:relative;width:150px;margin:0 auto;height:230px;border-radius:50% 50% 14px 14px/14% 14% 6% 6%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);
-  background:linear-gradient(100deg,#e6a7bf 0%,#cf6f93 30%,#b5577a 60%,#8e3f5d 85%,#b5577a 100%);
-  box-shadow:inset 18px 0 30px rgba(255,255,255,0.22), inset -26px 0 38px rgba(60,10,28,0.4), 0 20px 30px rgba(122,15,36,0.18);}
+.nsth-stage{position:relative;height:min(66vh,600px);margin-top:2rem;perspective:1500px;}
+.nsth-stage::after{content:"";position:absolute;left:7%;right:7%;bottom:calc(6% - 18px);height:2px;border-radius:2px;z-index:0;
+  background:linear-gradient(90deg,transparent,rgba(122,15,36,0.22) 18%,rgba(122,15,36,0.22) 82%,transparent);}
+.nsth-ped .ped-col{position:relative;width:164px;margin:0 auto;height:200px;border-radius:50% 50% 12px 12px/13% 13% 5% 5%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);
+  background:linear-gradient(100deg,#ecb0cd 0%,#cf6f93 30%,#b5577a 60%,#8e3f5d 85%,#b5577a 100%);
+  box-shadow:inset 18px 0 30px rgba(255,255,255,0.24), inset -26px 0 38px rgba(60,10,28,0.42), 0 28px 34px -10px rgba(122,15,36,0.34);}
 .nsth-ped .ped-col::after{content:"";position:absolute;inset:0;border-radius:inherit;
   background:repeating-linear-gradient(90deg,rgba(255,255,255,0.12) 0 3px,rgba(120,30,60,0.10) 3px 7px,transparent 7px 13px);opacity:0.6;}
 .nsth-stage-rotctrl{display:flex;gap:0.7rem;align-items:center;margin-top:0.5rem;}
@@ -1276,20 +1278,25 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 .nsth-rotbtn:hover{background:#9b3552;color:var(--ivory);}
 .nsth-rotlbl{font-family:var(--B);font-size:11px;font-weight:600;letter-spacing:0.05em;color:#9b3552;text-transform:uppercase;opacity:0.75;}
 .nsth-ped{position:absolute;bottom:6%;width:200px;cursor:grab;touch-action:none;transition:filter .3s;}
+.nsth-ped::after{content:"";position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);width:150px;height:26px;border-radius:50%;z-index:0;
+  background:radial-gradient(ellipse,rgba(80,12,32,0.34),transparent 70%);filter:blur(3px);}
 .nsth-ped:active{cursor:grabbing;}
 .nsth-ped.dragging{z-index:30!important;filter:drop-shadow(0 18px 30px rgba(122,15,36,0.3));}
 .nsth-ped .ped-col::before{content:"";position:absolute;top:-7px;left:0;right:0;height:26px;border-radius:50%;
   background:linear-gradient(100deg,#e6a7bf,#cf6f93);box-shadow:inset 0 4px 10px rgba(255,255,255,0.3);transform:translateZ(1px);}
-.nsth-ped .ped-art{position:absolute;left:50%;bottom:188px;transform:translateX(-50%);width:160px;height:190px;
-  display:flex;align-items:flex-end;justify-content:center;}
-.nsth-ped .ped-art img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 10px 16px rgba(60,10,28,0.3));}
+.nsth-ped .ped-art{position:absolute;left:50%;bottom:172px;transform:translateX(-50%);width:152px;height:172px;
+  border-radius:10px 10px 7px 7px;overflow:hidden;z-index:2;background:rgba(255,250,251,0.6);
+  border:1px solid rgba(122,15,36,0.16);
+  box-shadow:0 16px 30px -6px rgba(60,10,28,0.34),0 2px 6px rgba(60,10,28,0.18),inset 0 0 0 5px rgba(255,255,255,0.4);
+  transition:transform .35s cubic-bezier(.25,.8,.4,1),box-shadow .35s;}
+.nsth-ped .ped-art img{width:100%;height:100%;object-fit:cover;display:block;}
+.nsth-ped:hover .ped-art{transform:translateX(-50%) translateY(-8px);box-shadow:0 26px 42px -6px rgba(60,10,28,0.44),inset 0 0 0 5px rgba(255,255,255,0.5);}
 .nsth-ped .ped-art .ped-ph{width:120px;height:150px;border:2px dashed rgba(122,15,36,0.45);border-radius:10px;
   display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--B);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#7a1530;opacity:0.65;background:rgba(255,255,255,0.3);padding:0.5rem;}
-.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:352px;width:190px;background:rgba(247,221,228,0.82);backdrop-filter:blur(4px);
-  border-radius:12px;padding:0.8rem 1rem;font-family:var(--B);font-size:11.5px;line-height:1.45;color:#7a1530;box-shadow:0 8px 20px rgba(122,15,36,0.14);text-align:left;z-index:6;}
+.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:360px;width:188px;min-height:62px;display:flex;align-items:center;background:rgba(255,248,250,0.88);backdrop-filter:blur(5px);
+  border:1px solid rgba(122,15,36,0.12);
+  border-radius:13px;padding:0.7rem 0.95rem;font-family:var(--B);font-size:11.5px;line-height:1.4;color:#7a1530;box-shadow:0 10px 22px rgba(122,15,36,0.16);text-align:left;z-index:6;}
 .nsth-ped .ped-tag b{color:#86204e;}
-.nsth-ped .ped-art{position:absolute;left:50%;bottom:188px;transform:translateX(-50%);width:160px;height:150px;
-  display:flex;align-items:flex-end;justify-content:center;z-index:2;}
 .nsth-stage-hint{font-family:var(--B);font-size:13px;font-weight:600;letter-spacing:0.04em;color:#c2683f;margin-top:1.2rem;}
 /* DETAIL pages */
 .nsth-detail{position:relative;min-height:100vh;padding:2rem 3rem 5rem;scroll-margin-top:var(--nh);
@@ -1361,9 +1368,11 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
   .nsth-next{position:static;transform:none;margin:0.5rem auto 0;}
   .nsth-stage{height:auto;display:flex;flex-direction:column;gap:2.8rem;align-items:center;}
   .nsth-ped{position:static!important;width:230px;display:flex;flex-direction:column;align-items:center;transform:none!important;}
-  .nsth-ped .ped-tag{position:static;transform:none;width:100%;margin-bottom:0.9rem;left:auto;right:auto;bottom:auto;}
-  .nsth-ped .ped-art{position:static;transform:none;width:150px;height:160px;margin-bottom:-14px;}
-  .nsth-ped .ped-col{width:160px;height:150px;}
+  .nsth-ped::after{display:none;}
+  .nsth-ped .ped-tag{position:static;transform:none;width:100%;min-height:0;margin-bottom:0.9rem;left:auto;right:auto;bottom:auto;}
+  .nsth-ped .ped-art{position:static;transform:none!important;width:170px;height:190px;margin-bottom:-16px;}
+  .nsth-ped:hover .ped-art{transform:translateY(-6px)!important;}
+  .nsth-ped .ped-col{width:170px;height:120px;}
 }
 @media(max-width:768px){
   .nsth-hero,.nsth-stage-sec{padding:5.5rem 1.3rem 3rem;}
@@ -5388,7 +5397,7 @@ body.ds-modal-lock{overflow:hidden;}
       <div class="sh-title"><span class="l1">Nữ sắc thiên hương</span><span class="l2">Vương sợi chỉ</span></div>
     </div>
     <div class="nsth-stage" id="nsthStage">
-      <div class="nsth-ped tag-left" style="left:4%;" data-art="theu-tay-tho-cam" data-idx="0">
+      <div class="nsth-ped tag-left" style="left:7%;" data-art="theu-tay-tho-cam" data-idx="0">
         <div class="ped-tag"><b>Chi tiết thêu tay thổ cẩm:</b> Sự kiên nhẫn và thiên chức nuôi dưỡng</div>
         <div class="ped-art"><img src="assets/nsth/ts-dsc-1.jpg" alt="Chi tiết thêu tay thổ cẩm"></div>
         <div class="ped-col"></div>
@@ -5398,7 +5407,7 @@ body.ds-modal-lock{overflow:hidden;}
         <div class="ped-art"><img src="assets/nsth/hoa-hmong-1.jpg" alt="Họa tiết và biểu tượng phồn thực"></div>
         <div class="ped-col"></div>
       </div>
-      <div class="nsth-ped tag-left" style="right:4%;" data-art="trang-suc-bua-ho-menh" data-idx="2">
+      <div class="nsth-ped tag-left" style="right:7%;" data-art="trang-suc-bua-ho-menh" data-idx="2">
         <div class="ped-tag"><b>Trang sức và bùa hộ mệnh:</b> Bản năng bảo vệ và đời sống tâm linh</div>
         <div class="ped-art"><img src="assets/nsth/ts-vong-co-dao.jpg" alt="Trang sức và bùa hộ mệnh"></div>
         <div class="ped-col"></div>
