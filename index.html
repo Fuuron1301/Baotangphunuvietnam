@@ -2681,6 +2681,21 @@ body.ds-modal-lock{overflow:hidden;}
     /* DECK đã gỡ — muon-mien cuộn dọc như bản gốc: ẩn nút điều hướng, counter, breadcrumb lặp */
     .mmmn-slide-nav,.mmmn-slide-counter{display:none !important;}
     .mmmn-deck-slide:not(#mmmn-hero) .mmmn-crumb{display:none !important;}
+    /* chỉ hiện hero + các dàn 3 thẻ; ẩn slide nhân vật/hub (dùng làm dữ liệu cho modal) */
+    .mmmn-char-slide,.mmmn-hub-slide{display:none !important;}
+    .mmmn-themes-sec{min-height:calc(100vh - var(--nh));display:flex;align-items:center;}
+    .mmmn-theme-img{cursor:pointer;position:relative;transition:transform .35s cubic-bezier(.25,.8,.4,1),box-shadow .35s;}
+    .mmmn-theme-img.clickable::after{content:"Xem chi tiết";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(58,7,22,0.55);color:#fff;font-family:var(--B);font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;opacity:0;transition:opacity .3s;}
+    .mmmn-theme-img.clickable:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(0,0,0,0.4);}
+    .mmmn-theme-img.clickable:hover::after{opacity:1;}
+    /* Modal nhân vật */
+    .mmmn-modal{position:fixed;inset:0;z-index:140;display:none;align-items:center;justify-content:center;padding:2rem;background:rgba(40,4,16,0.74);backdrop-filter:blur(6px);}
+    .mmmn-modal.open{display:flex;}
+    .mmmn-modal-panel{position:relative;width:100%;max-width:1080px;max-height:88vh;overflow-y:auto;background:linear-gradient(160deg,#5a0f22,#3a0716);border:1px solid rgba(255,210,222,0.22);border-radius:18px;box-shadow:0 30px 80px rgba(0,0,0,0.5);}
+    .mmmn-modal-close{position:absolute;top:1rem;right:1rem;z-index:5;width:42px;height:42px;border-radius:50%;border:1px solid rgba(255,210,222,0.4);background:rgba(255,255,255,0.08);color:#f8e8ed;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s;}
+    .mmmn-modal-close:hover{background:rgba(255,255,255,0.18);}
+    .mmmn-modal-body .mmmn-char{padding:3rem 3rem 2.6rem;min-height:0;}
+    @media(max-width:900px){.mmmn-modal{padding:1rem;}.mmmn-modal-body .mmmn-char{padding:3rem 1.3rem 2rem;}}
     .mmmn-slide-counter{position:absolute;top:1.2rem;right:2.6rem;z-index:8;font-family:var(--B);font-size:11px;letter-spacing:0.12em;color:#f3d0da;opacity:0.8;}
     .mmmn-slide-nav{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:30;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,210,222,0.55);background:rgba(58,7,22,0.45);color:#f8e8ed;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,0.25);transition:all .3s;}
     .mmmn-slide-nav:hover{background:rgba(255,255,255,0.14);border-color:#f3d0da;}
@@ -2952,6 +2967,14 @@ body.ds-modal-lock{overflow:hidden;}
     <button type="button" class="mmmn-slide-nav" id="mmmnSlideNext" onclick="mmmnDeckStep(1)" aria-label="Trang tiếp">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
+  </div>
+
+  <!-- Modal nhân vật: mở khi bấm vào ảnh trong dàn -->
+  <div class="mmmn-modal" id="mmmnModal" onclick="if(event.target===this)mmmnCloseChar()">
+    <div class="mmmn-modal-panel">
+      <button type="button" class="mmmn-modal-close" onclick="mmmnCloseChar()" aria-label="Đóng">&times;</button>
+      <div class="mmmn-modal-body" id="mmmnModalBody"></div>
+    </div>
   </div>
 </div>
 
@@ -7476,16 +7499,49 @@ function mmmnDeckAttachSwipe(){
     if(Math.abs(dx)>50)mmmnDeckStep(dx<0?1:-1);
   });
 }
+function mmmnSrcBase(s){ return (s||'').split('?')[0].split('/').pop(); }
+function mmmnFindChar(src){
+  const b=mmmnSrcBase(src); let found=null;
+  document.querySelectorAll('#mmmnSlideDeck .mmmn-char-slide').forEach(sl=>{
+    const im=sl.querySelector('.mmmn-char-photo img');
+    if(im && mmmnSrcBase(im.getAttribute('src'))===b) found=sl;
+  });
+  return found;
+}
+function mmmnOpenChar(src){
+  const sl=mmmnFindChar(src); if(!sl)return;
+  const body=document.getElementById('mmmnModalBody'); if(!body)return;
+  body.innerHTML='';
+  const clone=sl.querySelector('.mmmn-char').cloneNode(true);
+  body.appendChild(clone);
+  clone.querySelectorAll('.mmmn-tab').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const pane=btn.dataset.tab;
+      clone.querySelectorAll('.mmmn-tab').forEach(b=>b.classList.toggle('on',b===btn));
+      clone.querySelectorAll('.mmmn-pane').forEach(p=>p.classList.toggle('on',p.dataset.pane===pane));
+    });
+  });
+  const m=document.getElementById('mmmnModal'); if(m)m.classList.add('open');
+}
+function mmmnCloseChar(){ const m=document.getElementById('mmmnModal'); if(m)m.classList.remove('open'); }
 function mmmnInitDeck(reset){
-  /* DECK đã gỡ: cuộn lên đầu + giữ tab nhân vật hoạt động */
+  /* DECK đã gỡ: cuộn dọc + bấm ảnh trong dàn mở modal nhân vật */
   window.scrollTo(0,0);
-  mmmnWireCharTabs();
+  const deck=document.getElementById('mmmnSlideDeck');
+  if(deck && !deck.dataset.themeWired){
+    deck.dataset.themeWired='1';
+    deck.querySelectorAll('.mmmn-themes .mmmn-theme-img').forEach(wrap=>{
+      const im=wrap.querySelector('img'); if(!im)return;
+      const src=im.getAttribute('src');
+      if(mmmnFindChar(src)){
+        wrap.classList.add('clickable');
+        wrap.addEventListener('click',()=>mmmnOpenChar(src));
+      }
+    });
+  }
 }
 document.addEventListener('keydown',e=>{
-  const pg=document.getElementById('page-muon-mien');
-  if(!pg||!pg.classList.contains('active'))return;
-  if(e.key==='ArrowRight')mmmnDeckStep(1);
-  if(e.key==='ArrowLeft')mmmnDeckStep(-1);
+  if(e.key==='Escape'){ const m=document.getElementById('mmmnModal'); if(m&&m.classList.contains('open'))mmmnCloseChar(); }
 });
 
 function fitMauAongu(){
