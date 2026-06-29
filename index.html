@@ -1334,13 +1334,19 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 /* carousel */
 .nsth-carousel{position:relative;}
 .nsth-car-img{width:100%;aspect-ratio:4/3.3;border-radius:22px;overflow:hidden;background:rgba(122,15,36,0.06);
-  border:1px dashed rgba(122,15,36,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(122,15,36,0.14);}
+  border:1px dashed rgba(122,15,36,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 16px 36px rgba(122,15,36,0.14);position:relative;}
 .nsth-car-img img{width:100%;height:100%;object-fit:cover;}
+.nsth-imgnav{position:absolute;top:50%;transform:translateY(-50%);width:38px;height:38px;border-radius:50%;border:none;background:rgba(255,255,255,0.82);color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(122,15,36,0.25);transition:background .25s;z-index:3;}
+.nsth-imgnav:hover{background:#fff;}
+.nsth-imgnav.prev{left:12px;}
+.nsth-imgnav.next{right:12px;}
+.nsth-img-count{position:absolute;bottom:12px;right:12px;background:rgba(90,15,34,0.78);color:#fff;font-family:var(--B);font-size:11px;font-weight:600;letter-spacing:0.04em;padding:4px 11px;border-radius:999px;z-index:3;}
+.nsth-art-label{font-family:var(--B);font-size:12px;font-weight:600;letter-spacing:0.04em;color:#9b3552;margin-left:auto;opacity:0.85;white-space:nowrap;}
 .nsth-car-ph{font-family:var(--B);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#7a1530;opacity:0.55;text-align:center;padding:1rem;}
 .nsth-car-ctrl{display:flex;align-items:center;gap:1.2rem;margin-top:1.1rem;}
 .nsth-car-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid #7a1530;background:transparent;color:#7a1530;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
 .nsth-car-btn:hover{background:#7a1530;color:var(--ivory);}
-.nsth-car-dots{display:flex;gap:0.6rem;margin-left:auto;}
+.nsth-car-dots{display:flex;gap:0.6rem;margin-left:0;align-items:center;}
 .nsth-dot{width:11px;height:11px;border-radius:50%;background:rgba(122,15,36,0.25);cursor:pointer;transition:all .3s;}
 .nsth-dot.active{background:#c2683f;transform:scale(1.15);}
 /* right pane */
@@ -6197,8 +6203,14 @@ function nsthRenderView(id){
   // carousel image
   const imgUrl=a.images[st.img];
   const imgHtml = imgUrl ? '<img src="'+imgUrl+'" alt="">' : '<span class="nsth-car-ph">Ảnh hiện vật<br>('+(st.img+1)+' / '+a.images.length+')</span>';
-  // dots
-  let dots=''; for(let i=0;i<a.images.length;i++){ dots+='<span class="nsth-dot'+(i===st.img?' active':'')+'" onclick="nsthSetImg(\''+id+'\','+i+')"></span>'; }
+  // dots = các HIỆN VẬT trong chuyên mục (số lượng cố định cho mỗi trang)
+  let dots=''; for(let i=0;i<grp.length;i++){ dots+='<span class="nsth-dot'+(i===st.art?' active':'')+'" title="Hiện vật '+(i+1)+'" onclick="nsthGoArt(\''+id+'\','+i+')"></span>'; }
+  // điều hướng ảnh trong cùng 1 hiện vật (tách bạch với chuyển hiện vật)
+  const multi=a.images.length>1;
+  const imgNav = multi ? `
+        <button class="nsth-imgnav prev" onclick="nsthStepImg('${id}',-1)" aria-label="Ảnh trước"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button class="nsth-imgnav next" onclick="nsthStepImg('${id}',1)" aria-label="Ảnh sau"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nsth-img-count">${st.img+1}/${a.images.length} ảnh</div>` : '';
   // timeline
   let tl=''; a.years.forEach((y,k)=>{ tl+='<span class="nsth-tl-y'+(k===2?' cur':'')+'">'+y+'</span>'; if(k<4)tl+='<span class="nsth-tl-sep"></span>'; });
   // info rows
@@ -6210,11 +6222,12 @@ function nsthRenderView(id){
   root.innerHTML = `
     <div class="nsth-d-grid">
       <div class="nsth-carousel">
-        <div class="nsth-car-img" id="nsthCarImg-${id}">${imgHtml}</div>
+        <div class="nsth-car-img" id="nsthCarImg-${id}">${imgHtml}${imgNav}</div>
         <div class="nsth-car-ctrl">
-          <button class="nsth-car-btn" onclick="nsthStepImg('${id}',-1)" aria-label="Ảnh trước"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="nsth-car-btn" onclick="nsthStepImg('${id}',1)" aria-label="Ảnh sau"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <button class="nsth-car-btn" onclick="nsthStepArt('${id}',-1)" aria-label="Hiện vật trước"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <div class="nsth-car-dots">${dots}</div>
+          <button class="nsth-car-btn" onclick="nsthStepArt('${id}',1)" aria-label="Hiện vật sau"><svg viewBox="0 0 24 24" width="16" height="16" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          <span class="nsth-art-label">Hiện vật ${st.art+1}/${grp.length}</span>
         </div>
       </div>
       <div class="nsth-d-right">
@@ -6225,13 +6238,6 @@ function nsthRenderView(id){
         </div>
         <div class="nsth-tabpane" id="nsthPane-${id}-story"><div class="nsth-story">${story}</div></div>
       </div>
-      <button class="nsth-next" title="Hiện vật tiếp theo" onclick="nsthStepArt('${id}',1)">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <button class="nsth-prev" title="Hiện vật trước" onclick="nsthStepArt('${id}',-1)">
-        <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M15 6l-6 6 6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <div class="nsth-art-counter">${counter}</div>
     </div>`;
   // gắn lại trạng thái tab hiện tại
   const tab=root.dataset.tab||'intro';
@@ -6247,6 +6253,7 @@ function nsthApplyTab(id,which,clickFromBtn){
 }
 function nsthTabNew(e,id,which){ nsthApplyTab(id,which,true); }
 function nsthStepArt(id,dir){ const st=nsthEnsure(id); st.art+=dir; st.img=0; const root=document.getElementById('nsthView-'+id); if(root)root.dataset.tab='intro'; nsthRenderView(id); }
+function nsthGoArt(id,i){ const st=nsthEnsure(id); st.art=i; st.img=0; const root=document.getElementById('nsthView-'+id); if(root)root.dataset.tab='intro'; nsthRenderView(id); }
 function nsthSetImg(id,i){ const st=nsthEnsure(id); st.img=i; nsthRenderView(id); }
 function nsthStepImg(id,dir){ const st=nsthEnsure(id); st.img+=dir; nsthRenderView(id); }
 function nsthAttachSwipe(id){
