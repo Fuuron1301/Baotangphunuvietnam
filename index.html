@@ -1265,38 +1265,40 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
 .nsth-stage-head .sh-title{font-family:var(--F);font-weight:400;line-height:1.0;color:#7a1530;}
 .nsth-stage-head .sh-title .l1{display:block;font-size:clamp(1.8rem,3.6vw,3.2rem);}
 .nsth-stage-head .sh-title .l2{display:block;font-size:clamp(1.5rem,3vw,2.6rem);padding-left:2em;color:#9b2f56;}
-.nsth-stage{position:relative;height:min(66vh,600px);margin-top:2rem;perspective:1500px;}
+.nsth-stage{position:relative;height:min(72vh,650px);margin-top:2rem;perspective:1500px;}
 .nsth-stage::after{content:"";position:absolute;left:7%;right:7%;bottom:calc(6% - 18px);height:2px;border-radius:2px;z-index:0;
   background:linear-gradient(90deg,transparent,rgba(122,15,36,0.22) 18%,rgba(122,15,36,0.22) 82%,transparent);}
-.nsth-ped .ped-col{position:relative;width:164px;margin:0 auto;height:200px;border-radius:50% 50% 12px 12px/13% 13% 5% 5%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);
-  background:linear-gradient(100deg,#ecb0cd 0%,#cf6f93 30%,#b5577a 60%,#8e3f5d 85%,#b5577a 100%);
-  box-shadow:inset 18px 0 30px rgba(255,255,255,0.24), inset -26px 0 38px rgba(60,10,28,0.42), 0 28px 34px -10px rgba(122,15,36,0.34);}
+.nsth-ped .ped-col{position:relative;width:152px;margin:0 auto;height:200px;border-radius:50% 50% 14px 14px/13% 13% 5% 5%;transform-style:preserve-3d;transition:transform .9s cubic-bezier(.4,.1,.2,1);
+  background:linear-gradient(100deg,#f6cfe0 0%,#e79bb8 24%,#cd7295 52%,#a4506e 80%,#c06b8c 100%);
+  box-shadow:inset 20px 0 34px rgba(255,255,255,0.30), inset -30px 0 46px rgba(60,10,28,0.42), 0 30px 40px -10px rgba(122,15,36,0.36);}
 .nsth-ped .ped-col::after{content:"";position:absolute;inset:0;border-radius:inherit;
-  background:repeating-linear-gradient(90deg,rgba(255,255,255,0.12) 0 3px,rgba(120,30,60,0.10) 3px 7px,transparent 7px 13px);opacity:0.6;}
+  background:repeating-linear-gradient(90deg,rgba(255,255,255,0.13) 0 3px,rgba(120,30,60,0.10) 3px 7px,transparent 7px 14px);opacity:0.55;}
 .nsth-stage-rotctrl{display:flex;gap:0.7rem;align-items:center;margin-top:0.5rem;}
 .nsth-rotbtn{width:42px;height:42px;border-radius:50%;border:1.5px solid #9b3552;background:rgba(255,255,255,0.4);color:#9b3552;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
 .nsth-rotbtn:hover{background:#9b3552;color:var(--ivory);}
 .nsth-rotlbl{font-family:var(--B);font-size:11px;font-weight:600;letter-spacing:0.05em;color:#9b3552;text-transform:uppercase;opacity:0.75;}
-.nsth-ped{position:absolute;bottom:6%;width:200px;cursor:grab;touch-action:none;transition:filter .3s;}
-.nsth-ped::after{content:"";position:absolute;left:50%;bottom:-16px;transform:translateX(-50%);width:150px;height:26px;border-radius:50%;z-index:0;
-  background:radial-gradient(ellipse,rgba(80,12,32,0.34),transparent 70%);filter:blur(3px);}
+.nsth-ped{position:absolute;bottom:6%;width:236px;cursor:grab;touch-action:none;transition:filter .3s;}
+.nsth-ped::after{content:"";position:absolute;left:50%;bottom:-18px;transform:translateX(-50%);width:172px;height:30px;border-radius:50%;z-index:0;
+  background:radial-gradient(ellipse,rgba(80,12,32,0.36),transparent 70%);filter:blur(4px);}
 .nsth-ped:active{cursor:grabbing;}
 .nsth-ped.dragging{z-index:30!important;filter:drop-shadow(0 18px 30px rgba(122,15,36,0.3));}
-.nsth-ped .ped-col::before{content:"";position:absolute;top:-7px;left:0;right:0;height:26px;border-radius:50%;
-  background:linear-gradient(100deg,#e6a7bf,#cf6f93);box-shadow:inset 0 4px 10px rgba(255,255,255,0.3);transform:translateZ(1px);}
-.nsth-ped .ped-art{position:absolute;left:50%;bottom:172px;transform:translateX(-50%);width:152px;height:172px;
-  border-radius:10px 10px 7px 7px;overflow:hidden;z-index:2;background:rgba(255,250,251,0.6);
-  border:1px solid rgba(122,15,36,0.16);
-  box-shadow:0 16px 30px -6px rgba(60,10,28,0.34),0 2px 6px rgba(60,10,28,0.18),inset 0 0 0 5px rgba(255,255,255,0.4);
-  transition:transform .35s cubic-bezier(.25,.8,.4,1),box-shadow .35s;}
-.nsth-ped .ped-art img{width:100%;height:100%;object-fit:cover;display:block;}
-.nsth-ped:hover .ped-art{transform:translateX(-50%) translateY(-8px);box-shadow:0 26px 42px -6px rgba(60,10,28,0.44),inset 0 0 0 5px rgba(255,255,255,0.5);}
+.nsth-ped .ped-col::before{content:"";position:absolute;top:-8px;left:0;right:0;height:28px;border-radius:50%;
+  background:linear-gradient(100deg,#f9d6e3,#e295b1);box-shadow:inset 0 4px 12px rgba(255,255,255,0.42),0 4px 10px rgba(60,10,28,0.18);transform:translateZ(1px);}
+/* Hiện vật tách nền đặt đứng trên cột — to, giữ trong suốt, đổ bóng */
+.nsth-ped .ped-art{position:absolute;left:50%;bottom:178px;transform:translateX(-50%);width:236px;height:262px;z-index:3;
+  display:flex;align-items:flex-end;justify-content:center;
+  filter:drop-shadow(0 20px 24px rgba(60,10,28,0.40));
+  transition:transform .4s cubic-bezier(.25,.8,.4,1),filter .4s;}
+.nsth-ped .ped-art img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block;pointer-events:none;}
+.nsth-ped:hover .ped-art{transform:translateX(-50%) translateY(-12px) scale(1.045);filter:drop-shadow(0 30px 34px rgba(60,10,28,0.48));}
 .nsth-ped .ped-art .ped-ph{width:120px;height:150px;border:2px dashed rgba(122,15,36,0.45);border-radius:10px;
   display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--B);font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:#7a1530;opacity:0.65;background:rgba(255,255,255,0.3);padding:0.5rem;}
-.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:360px;width:188px;min-height:62px;display:flex;align-items:center;background:rgba(255,248,250,0.88);backdrop-filter:blur(5px);
-  border:1px solid rgba(122,15,36,0.12);
-  border-radius:13px;padding:0.7rem 0.95rem;font-family:var(--B);font-size:11.5px;line-height:1.4;color:#7a1530;box-shadow:0 10px 22px rgba(122,15,36,0.16);text-align:left;z-index:6;}
-.nsth-ped .ped-tag b{color:#86204e;}
+.nsth-ped .ped-tag{position:absolute;left:50%;transform:translateX(-50%);bottom:452px;width:212px;
+  display:flex;flex-direction:column;gap:0.28rem;background:rgba(255,250,252,0.92);backdrop-filter:blur(6px);
+  border:1px solid rgba(122,15,36,0.10);
+  border-radius:15px;padding:0.85rem 1.05rem;box-shadow:0 12px 28px rgba(122,15,36,0.18);text-align:center;z-index:6;}
+.nsth-ped .ped-tag .pt-title{font-family:var(--B);font-weight:700;font-size:13px;line-height:1.32;color:#86204e;letter-spacing:0.01em;}
+.nsth-ped .ped-tag .pt-desc{font-family:var(--B);font-weight:400;font-size:11.5px;line-height:1.46;color:#6a1228;opacity:0.92;}
 .nsth-stage-hint{font-family:var(--B);font-size:13px;font-weight:600;letter-spacing:0.04em;color:#c2683f;margin-top:1.2rem;}
 /* INTRO header on detail page (mở khi bấm vào cột bệ) */
 .nsth-intro{max-width:1180px;margin:0 auto 1.4rem;}
@@ -1393,12 +1395,12 @@ footer{background:linear-gradient(160deg,#530F1E 0%,#66011f 55%,#4A0117 100%);pa
   .nsth-d-grid{grid-template-columns:1fr;gap:2rem;}
   .nsth-next{position:static;transform:none;margin:0.5rem auto 0;}
   .nsth-stage{height:auto;display:flex;flex-direction:column;gap:2.8rem;align-items:center;}
-  .nsth-ped{position:static!important;width:230px;display:flex;flex-direction:column;align-items:center;transform:none!important;}
+  .nsth-ped{position:static!important;width:240px;display:flex;flex-direction:column;align-items:center;transform:none!important;}
   .nsth-ped::after{display:none;}
   .nsth-ped .ped-tag{position:static;transform:none;width:100%;min-height:0;margin-bottom:0.9rem;left:auto;right:auto;bottom:auto;}
-  .nsth-ped .ped-art{position:static;transform:none!important;width:170px;height:190px;margin-bottom:-16px;}
-  .nsth-ped:hover .ped-art{transform:translateY(-6px)!important;}
-  .nsth-ped .ped-col{width:170px;height:120px;}
+  .nsth-ped .ped-art{position:static;transform:none!important;width:210px;height:230px;margin-bottom:-18px;}
+  .nsth-ped:hover .ped-art{transform:translateY(-8px)!important;}
+  .nsth-ped .ped-col{width:172px;height:130px;}
 }
 @media(max-width:768px){
   .nsth-hero,.nsth-stage-sec{padding:5.5rem 1.3rem 3rem;}
@@ -5424,18 +5426,18 @@ body.ds-modal-lock{overflow:hidden;}
     </div>
     <div class="nsth-stage" id="nsthStage">
       <div class="nsth-ped tag-left" style="left:7%;" data-art="theu-tay-tho-cam" data-idx="0">
-        <div class="ped-tag"><b>Chi tiết thêu tay thổ cẩm:</b> Sự kiên nhẫn và thiên chức nuôi dưỡng</div>
-        <div class="ped-art"><img src="assets/nsth/ts-dsc-1.jpg" alt="Chi tiết thêu tay thổ cẩm"></div>
+        <div class="ped-tag"><span class="pt-title">Chi tiết thêu tay thổ cẩm</span><span class="pt-desc">Sự kiên nhẫn và thiên chức nuôi dưỡng</span></div>
+        <div class="ped-art"><img src="assets/nsth/nsth-ped-1.png" alt="Chi tiết thêu tay thổ cẩm"></div>
         <div class="ped-col"></div>
       </div>
       <div class="nsth-ped " style="left:50%;transform:translateX(-50%);" data-art="hoa-tiet-phon-thuc" data-idx="1">
-        <div class="ped-tag"><b>Họa tiết và biểu tượng phồn thực:</b> Sự kết nối với thiên nhiên và khả năng sinh thành</div>
-        <div class="ped-art"><img src="assets/nsth/hoa-hmong-1.jpg" alt="Họa tiết và biểu tượng phồn thực"></div>
+        <div class="ped-tag"><span class="pt-title">Họa tiết và biểu tượng phồn thực</span><span class="pt-desc">Sự kết nối với thiên nhiên và khả năng sinh thành</span></div>
+        <div class="ped-art"><img src="assets/nsth/nsth-ped-2.png" alt="Họa tiết và biểu tượng phồn thực"></div>
         <div class="ped-col"></div>
       </div>
       <div class="nsth-ped tag-left" style="right:7%;" data-art="trang-suc-bua-ho-menh" data-idx="2">
-        <div class="ped-tag"><b>Trang sức và bùa hộ mệnh:</b> Bản năng bảo vệ và đời sống tâm linh</div>
-        <div class="ped-art"><img src="assets/nsth/ts-vong-co-dao.jpg" alt="Trang sức và bùa hộ mệnh"></div>
+        <div class="ped-tag"><span class="pt-title">Trang sức và bùa hộ mệnh</span><span class="pt-desc">Bản năng bảo vệ và đời sống tâm linh</span></div>
+        <div class="ped-art"><img src="assets/nsth/nsth-ped-3.png" alt="Trang sức và bùa hộ mệnh"></div>
         <div class="ped-col"></div>
       </div>
     </div>
