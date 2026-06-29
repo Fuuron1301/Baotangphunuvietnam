@@ -2665,7 +2665,7 @@ body.ds-modal-lock{overflow:hidden;}
         linear-gradient(180deg,#560b1f 0%,#4d0a1c 18%,#45091a 50%,#390716 82%,#340615 100%);
       background-repeat:no-repeat;
     }
-    #page-muon-mien.active{overflow:hidden;}
+    #page-muon-mien.active{overflow:visible;}
     #page-muon-mien::before,#page-muon-mien::after{
       content:"";position:fixed;pointer-events:none;z-index:0;opacity:0.22;
       width:clamp(140px,18vw,280px);height:clamp(140px,18vw,280px);
@@ -2674,10 +2674,13 @@ body.ds-modal-lock{overflow:hidden;}
     }
     #page-muon-mien::before{left:-2%;bottom:4%;}
     #page-muon-mien::after{right:-2%;bottom:4%;transform:scaleX(-1);}
-    .mmmn-deck{min-height:calc(100vh - var(--nh));position:relative;z-index:1;}
-    .mmmn-deck-inner{max-width:100%;margin:0 auto;position:relative;min-height:calc(100vh - var(--nh));}
-    .mmmn-deck-slide{display:none !important;width:100%;box-sizing:border-box;min-height:calc(100vh - var(--nh));}
+    .mmmn-deck{position:relative;z-index:1;}
+    .mmmn-deck-inner{max-width:100%;margin:0 auto;position:relative;}
+    .mmmn-deck-slide{display:flex !important;width:100%;box-sizing:border-box;min-height:calc(100vh - var(--nh));}
     .mmmn-deck-slide.active{display:flex !important;}
+    /* DECK đã gỡ — muon-mien cuộn dọc như bản gốc: ẩn nút điều hướng, counter, breadcrumb lặp */
+    .mmmn-slide-nav,.mmmn-slide-counter{display:none !important;}
+    .mmmn-deck-slide:not(#mmmn-hero) .mmmn-crumb{display:none !important;}
     .mmmn-slide-counter{position:absolute;top:1.2rem;right:2.6rem;z-index:8;font-family:var(--B);font-size:11px;letter-spacing:0.12em;color:#f3d0da;opacity:0.8;}
     .mmmn-slide-nav{position:fixed;right:1.25rem;top:50%;transform:translateY(-50%);z-index:30;width:46px;height:46px;border-radius:50%;border:1.5px solid rgba(255,210,222,0.55);background:rgba(58,7,22,0.45);color:#f8e8ed;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,0.25);transition:all .3s;}
     .mmmn-slide-nav:hover{background:rgba(255,255,255,0.14);border-color:#f3d0da;}
@@ -7445,9 +7448,7 @@ function mmmnRenderDeck(){
   mmmnDeckAttachSwipe();
 }
 function mmmnDeckStep(dir){
-  if(!mmmnDeckSlides)mmmnDeckSlides=mmmnCollectSlides();
-  mmmnDeckIdx+=dir;
-  mmmnRenderDeck();
+  /* DECK đã gỡ — muon-mien cuộn dọc, không nhảy slide */
 }
 function mmmnWireCharTabs(){
   const deck=document.getElementById('mmmnSlideDeck');
@@ -7476,11 +7477,9 @@ function mmmnDeckAttachSwipe(){
   });
 }
 function mmmnInitDeck(reset){
-  if(reset){mmmnDeckIdx=0;mmmnDeckSlides=null;}
-  mmmnEnsureSlideCrumbs();
+  /* DECK đã gỡ: cuộn lên đầu + giữ tab nhân vật hoạt động */
+  window.scrollTo(0,0);
   mmmnWireCharTabs();
-  mmmnDeckSlides=mmmnCollectSlides();
-  mmmnRenderDeck();
 }
 document.addEventListener('keydown',e=>{
   const pg=document.getElementById('page-muon-mien');
