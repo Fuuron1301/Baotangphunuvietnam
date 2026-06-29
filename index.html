@@ -8080,7 +8080,7 @@ function openMsg(id){
     <p style="font-family:var(--B);font-size:9px;letter-spacing:0.15em;text-transform:uppercase;opacity:0.4;margin-bottom:0.5rem;font-weight:400;color:var(--text);">${escHtml(m.name||'Ẩn danh')} · ${tAgo(m.ts)}</p>
     <p style="font-family:var(--F);font-size:1.1rem;font-style:italic;line-height:1.7;color:var(--text);margin-bottom:1.5rem;">"${escHtml(m.msg)}"</p>
     <div class="lc-heart ${liked?'liked':''}" onclick="tHeart(event,'${id}',this)" style="justify-content:center;font-size:13px;gap:8px;">
-      <span class="hi" style="font-size:18px;color:${liked?'#e05070':'inherit'}">â™¥</span>
+      <span class="hi" style="font-size:18px;color:${liked?'#e05070':'inherit'}">♥</span>
       <span id="lk-${id}">${lk} lượt tim</span>
     </div>
     ${renderCommentsBlock(id)}`;
