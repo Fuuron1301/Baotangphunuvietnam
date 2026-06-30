@@ -2742,7 +2742,43 @@ body.ds-modal-lock{overflow:hidden;}
     .mmmn-theme h3{font-family:var(--B);font-weight:700;font-size:clamp(1.05rem,1.6vw,1.25rem);color:#fff;text-align:center;margin:0 0 1.2rem;letter-spacing:0.08em;}
     .mmmn-theme-img{border-radius:10px;overflow:hidden;aspect-ratio:4/3;margin-bottom:1.1rem;box-shadow:0 14px 32px rgba(0,0,0,0.22);}
     .mmmn-theme-img img{width:100%;height:100%;object-fit:cover;display:block;}
-    .mmmn-theme p{font-family:var(--B);font-size:clamp(0.92rem,1.2vw,1.05rem);line-height:1.85;color:rgba(255,240,244,0.92);margin:0;text-align:left;}
+    .mmmn-theme p{font-family:var(--B);font-size:clamp(0.92rem,1.2vw,1.05rem);line-height:1.85;color:rgba(255,240,244,0.92);margin:0;text-align:justify;}
+    /* ===== Layout mới: timeline + intro miền + hint ===== */
+    .mmmn-vsec{flex-direction:column !important;justify-content:center;align-items:center;}
+    /* Timeline (Trang 1) */
+    .mmmn-tl{width:100%;max-width:1000px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;}
+    .mmmn-tl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 2rem;align-items:center;}
+    .mmmn-tl-cell{display:flex;flex-direction:column;align-items:center;gap:1.1rem;text-align:center;cursor:pointer;}
+    .mmmn-tl-cell.bottom{flex-direction:column-reverse;}
+    .mmmn-tl-label{font-family:var(--B);font-weight:700;font-size:clamp(1rem,1.7vw,1.3rem);color:#fff;line-height:1.35;transition:color .25s;}
+    .mmmn-tl-cell:hover .mmmn-tl-label{color:#f3b8c6;}
+    .mmmn-tl-img{width:clamp(120px,15vw,185px);aspect-ratio:1;border-radius:16px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,0.3);transition:transform .3s;}
+    .mmmn-tl-cell:hover .mmmn-tl-img{transform:translateY(-6px);}
+    .mmmn-tl-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(1);transition:filter .35s;}
+    .mmmn-tl-cell:hover .mmmn-tl-img img{filter:grayscale(0);}
+    .mmmn-tl-rail{position:relative;width:100%;max-width:880px;height:2px;background:rgba(255,210,222,0.28);margin:2.4rem auto;}
+    .mmmn-tl-rail .dot{position:absolute;top:50%;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:rgba(255,210,222,0.4);cursor:pointer;transition:background .3s,box-shadow .3s;border:0;padding:0;}
+    .mmmn-tl-rail .dot:hover,.mmmn-tl-rail .dot.on{background:#fff;box-shadow:0 0 0 6px rgba(255,255,255,0.14);}
+    .mmmn-tl-rail .dot.d1{left:16.6%;}
+    .mmmn-tl-rail .dot.d2{left:50%;}
+    .mmmn-tl-rail .dot.d3{left:83.3%;}
+    .mmmn-tl-eyebrow{font-family:var(--B);font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:#f3b8c6;text-align:center;margin:0 0 2.6rem;opacity:0.9;}
+    .mmmn-tl-hint{text-align:center;font-family:var(--B);font-size:clamp(0.82rem,1.1vw,0.95rem);color:rgba(255,240,244,0.7);margin-top:1.6rem;font-style:italic;}
+    /* Region intro (Trang 2) */
+    .mmmn-intro-grid{width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:0.9fr 1.1fr;gap:3.5rem;align-items:center;}
+    .mmmn-intro-photo{border-radius:14px;overflow:hidden;box-shadow:0 24px 56px rgba(0,0,0,0.36);aspect-ratio:4/5;max-height:74vh;}
+    .mmmn-intro-photo img{width:100%;height:100%;object-fit:cover;display:block;}
+    .mmmn-intro-content{text-align:center;}
+    .mmmn-intro-title{font-family:var(--F);font-weight:400;font-size:clamp(2rem,4.2vw,3.4rem);color:#fff;margin:0 0 1.5rem;letter-spacing:0.04em;}
+    .mmmn-intro-text{font-family:var(--B);font-size:clamp(0.95rem,1.2vw,1.08rem);line-height:1.95;color:rgba(255,240,244,0.9);margin:0;}
+    /* Hint bấm ảnh trên dàn 3 thẻ */
+    .mmmn-themes-hint{text-align:center;font-family:var(--B);font-size:clamp(0.85rem,1.1vw,0.98rem);color:rgba(255,240,244,0.8);font-style:italic;margin:0 auto;padding:0 2rem 0.4rem;max-width:1180px;}
+    @media(max-width:900px){
+      .mmmn-tl-grid{grid-template-columns:1fr;gap:2rem;}
+      .mmmn-tl-rail{display:none;}
+      .mmmn-intro-grid{grid-template-columns:1fr;gap:2rem;}
+      .mmmn-intro-photo{max-height:none;aspect-ratio:4/3;}
+    }
     /* character */
     .mmmn-char{width:100%;max-width:1180px;margin:0 auto;padding:4.5rem 2.4rem 4rem;display:grid;grid-template-columns:1.05fr 0.95fr;gap:2.8rem;align-items:center;min-height:calc(100vh - var(--nh));}
     .mmmn-char-photo{border-radius:12px;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,0.32);border:1px solid rgba(255,210,222,0.12);aspect-ratio:4/5;max-height:72vh;}
@@ -2787,9 +2823,47 @@ body.ds-modal-lock{overflow:hidden;}
           <h1 class="mmmn-hero-title">Muôn miền<br>Muôn nét nữ</h1>
         </section>
 
-        
+        <!-- TRANG 1: TIMELINE 3 MIỀN -->
+        <section class="mmmn-deck-slide mmmn-vsec" id="mmmn-timeline">
+          <div class="mmmn-tl">
+            <p class="mmmn-tl-eyebrow">Ba miền — Ba nét nữ</p>
+            <div class="mmmn-tl-grid">
+              <div class="mmmn-tl-cell top" onclick="mmmnGoRegion('nui')">
+                <div class="mmmn-tl-img"><img src="assets/mmmn/3.png" alt="Nét nữ miền Núi" loading="lazy"></div>
+                <p class="mmmn-tl-label">Nét nữ<br>miền Núi</p>
+              </div>
+              <div class="mmmn-tl-cell bottom" onclick="mmmnGoRegion('db')">
+                <p class="mmmn-tl-label">Nét nữ miền<br>Đồng bằng</p>
+                <div class="mmmn-tl-img"><img src="assets/mmmn/4.png" alt="Nét nữ miền Đồng bằng" loading="lazy"></div>
+              </div>
+              <div class="mmmn-tl-cell top" onclick="mmmnGoRegion('song')">
+                <div class="mmmn-tl-img"><img src="assets/mmmn/14.png" alt="Nét nữ miền Sông nước" loading="lazy"></div>
+                <p class="mmmn-tl-label">Nét nữ miền<br>Sông nước</p>
+              </div>
+            </div>
+            <div class="mmmn-tl-rail">
+              <button type="button" class="dot d1" onclick="mmmnGoRegion('nui')" aria-label="Nét nữ miền Núi"></button>
+              <button type="button" class="dot d2" onclick="mmmnGoRegion('db')" aria-label="Nét nữ miền Đồng bằng"></button>
+              <button type="button" class="dot d3" onclick="mmmnGoRegion('song')" aria-label="Nét nữ miền Sông nước"></button>
+            </div>
+            <p class="mmmn-tl-hint">Nhấn vào từng dấu chấm hoặc hình ảnh để khám phá mỗi miền</p>
+          </div>
+        </section>
 
-        <section class="mmmn-deck-slide">
+        <!-- TRANG 2: INTRO MIỀN NÚI -->
+        <section class="mmmn-deck-slide mmmn-vsec" id="mmmn-r-nui">
+          <div class="mmmn-intro-grid">
+            <div class="mmmn-intro-photo"><img src="assets/mmmn/3.png" alt="Nét nữ miền Núi" loading="lazy"></div>
+            <div class="mmmn-intro-content">
+              <h2 class="mmmn-intro-title">Nét nữ miền núi</h2>
+              <p class="mmmn-intro-text">Giữa những tầng mây của núi rừng Tây Bắc, người phụ nữ miền núi hiện lên với vẻ đẹp mộc mạc nhưng bền bỉ. Họ không chỉ là người giữ nếp nhà, chăm lo gia đình mà còn là người lưu giữ ký ức văn hóa, truyền lại tiếng khèn, điệu múa, nghề dệt và những câu chuyện của bản làng qua nhiều thế hệ.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- TRANG 3: DÀN 3 THẺ MIỀN NÚI -->
+        <section class="mmmn-deck-slide mmmn-vsec">
+          <p class="mmmn-themes-hint">Nhấn vào ảnh để đọc thêm thông tin về nhân vật</p>
           <div class="mmmn-themes">
             <article class="mmmn-theme"><h3>NUÔI DƯỠNG</h3><div class="mmmn-theme-img"><img src="assets/mmmn/2.png" alt="Nuôi dưỡng" loading="lazy"></div><p>Người phụ nữ miền núi là điểm tựa của gia đình. Từ những nương ngô trên sườn núi đến bữa cơm bên bếp lửa, họ âm thầm vun đắp cuộc sống bằng sự kiên cường và tình yêu thương.</p></article>
             <article class="mmmn-theme"><h3>GÌN GIỮ</h3><div class="mmmn-theme-img"><img src="assets/mmmn/3.png" alt="Gìn giữ" loading="lazy"></div><p>Trong từng hoa văn thổ cẩm, từng làn điệu dân ca hay nghi lễ truyền thống, dấu ấn của người phụ nữ luôn hiện diện như một người gìn giữ bản sắc văn hóa dân tộc.</p></article>
@@ -2832,27 +2906,19 @@ body.ds-modal-lock{overflow:hidden;}
           </div>
         </section>
 
-        <section class="mmmn-deck-slide mmmn-hub-slide" data-hub="db">
-          <div class="mmmn-hub">
-            <div class="mmmn-hub-grid">
-              <div class="mmmn-hub-cell bottom">
-                <p class="mmmn-hub-label">Nét nữ miền Núi</p>
-                <div class="mmmn-hub-img"><img src="assets/inline/8ceeb76dbac0.jpg" alt="Nét nữ miền Núi" loading="lazy"></div>
-              </div>
-              <div class="mmmn-hub-cell top">
-                <div class="mmmn-hub-img"><img src="assets/mmmn/4.png" alt="Nét nữ miền Đồng bằng" loading="lazy"></div>
-                <p class="mmmn-hub-label">Nét nữ miền Đồng bằng</p>
-              </div>
-              <div class="mmmn-hub-cell bottom">
-                <p class="mmmn-hub-label">Nét nữ miền Sông nước</p>
-                <div class="mmmn-hub-img"><img src="assets/mmmn/14.png" alt="Nét nữ miền Sông nước" loading="lazy"></div>
-              </div>
+        <!-- INTRO MIỀN ĐỒNG BẰNG -->
+        <section class="mmmn-deck-slide mmmn-vsec" id="mmmn-r-db">
+          <div class="mmmn-intro-grid">
+            <div class="mmmn-intro-photo"><img src="assets/mmmn/4.png" alt="Nét nữ miền Đồng bằng" loading="lazy"></div>
+            <div class="mmmn-intro-content">
+              <h2 class="mmmn-intro-title">Nét nữ miền đồng bằng</h2>
+              <p class="mmmn-intro-text">Nơi những cánh đồng lúa trải dài và dòng sông hiền hòa bồi đắp phù sa, người phụ nữ đồng bằng hiện lên với sự đảm đang, dịu dàng và bền bỉ. Họ là sợi dây gắn kết các thế hệ, gìn giữ nếp nhà, vun bồi tình thân và lặng lẽ trao truyền những giá trị văn hóa của làng quê Việt qua bao mùa nắng mưa.</p>
             </div>
-            <div class="mmmn-hub-rail"><span class="dot d1"></span><span class="dot d2 on"></span><span class="dot d3"></span></div>
           </div>
         </section>
 
-        <section class="mmmn-deck-slide">
+        <section class="mmmn-deck-slide mmmn-vsec">
+          <p class="mmmn-themes-hint">Nhấn vào ảnh để đọc thêm thông tin về nhân vật</p>
           <div class="mmmn-themes">
             <article class="mmmn-theme"><h3>GẮN KẾT</h3><div class="mmmn-theme-img"><img src="assets/mmmn/17.png" alt="Gắn kết" loading="lazy"></div><p>Từ những phiên chợ quê, những chuyến đò ngang cho đến bữa cơm chiều bên mái nhà, người phụ nữ đồng bằng luôn là sợi dây gắn kết các thế hệ và cộng đồng.</p></article>
             <article class="mmmn-theme"><h3>THẤU CẢM</h3><div class="mmmn-theme-img"><img src="assets/mmmn/16.png" alt="Thấu cảm" loading="lazy"></div><p>Trải qua những mùa nắng mưa, người phụ nữ đồng bằng học cách lắng nghe và sẻ chia. Sự dịu dàng của họ trở thành nguồn an ủi cho gia đình và xóm làng.</p></article>
@@ -2913,7 +2979,19 @@ body.ds-modal-lock{overflow:hidden;}
 
         
 
-        <section class="mmmn-deck-slide">
+        <!-- INTRO MIỀN SÔNG NƯỚC -->
+        <section class="mmmn-deck-slide mmmn-vsec" id="mmmn-r-song">
+          <div class="mmmn-intro-grid">
+            <div class="mmmn-intro-photo"><img src="assets/mmmn/14.png" alt="Nét nữ miền Sông nước" loading="lazy"></div>
+            <div class="mmmn-intro-content">
+              <h2 class="mmmn-intro-title">Nét nữ miền sông nước</h2>
+              <p class="mmmn-intro-text">Trên những con nước lên xuống theo mùa của miền Tây sông nước, người phụ nữ học cách thích nghi, sẻ chia và lan tỏa. Giữa chợ nổi, làng bè và những chuyến đò ngang, họ bền bỉ giữ lấy mái nhà, nghề truyền đời và tình người, để dòng sông quê hương mãi chở nặng nghĩa tình qua bao thế hệ.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="mmmn-deck-slide mmmn-vsec">
+          <p class="mmmn-themes-hint">Nhấn vào ảnh để đọc thêm thông tin về nhân vật</p>
           <div class="mmmn-themes">
             <article class="mmmn-theme"><h3>THÍCH NGHI</h3><div class="mmmn-theme-img"><img src="assets/mmmn/1.png" alt="Thích nghi" loading="lazy"></div><p>Trên những con nước lên xuống theo mùa, người phụ nữ miền sông nước luôn tìm cách thích nghi với thiên nhiên để gìn giữ cuộc sống và sinh kế cho gia đình.</p></article>
             <article class="mmmn-theme"><h3>LAN TỎA</h3><div class="mmmn-theme-img"><img src="assets/mmmn/11.png" alt="Lan tỏa" loading="lazy"></div><p>Những giá trị văn hóa, tình yêu quê hương và sự tử tế được người phụ nữ gìn giữ và truyền lại qua từng thế hệ, lặng lẽ bồi đắp nên bản sắc cộng đồng như dòng phù sa miệt mài vun đắp đôi bờ theo thời gian.</p></article>
@@ -7544,6 +7622,11 @@ function mmmnOpenChar(src){
   const m=document.getElementById('mmmnModal'); if(m)m.classList.add('open');
 }
 function mmmnCloseChar(){ const m=document.getElementById('mmmnModal'); if(m)m.classList.remove('open'); }
+function mmmnGoRegion(key){
+  const map={nui:'mmmn-r-nui',db:'mmmn-r-db',song:'mmmn-r-song'};
+  const el=document.getElementById(map[key]);
+  if(el)el.scrollIntoView({behavior:'smooth',block:'start'});
+}
 function mmmnInitDeck(reset){
   /* DECK đã gỡ: cuộn dọc + bấm ảnh trong dàn mở modal nhân vật */
   window.scrollTo(0,0);
