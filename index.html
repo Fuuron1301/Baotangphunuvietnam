@@ -2055,6 +2055,9 @@ body.ds-modal-lock{overflow:hidden;}
       cursor:pointer;transition:background .3s,border-color .3s;animation:mauBounce 2.4s ease-in-out infinite;}
     .mau-scroll-btn:hover{background:rgba(255,255,255,0.5);border-color:rgba(122,15,36,0.7);}
     @keyframes mauBounce{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+    /* Hint "nhấn vào ảnh" ở góc dưới trái hero Mẫu */
+    #mau-hero .mau-hero-hint{position:absolute;left:2.6rem;bottom:1.8rem;z-index:6;font-family:var(--B);font-size:12px;letter-spacing:0.03em;color:#7a1f33;opacity:0.82;font-style:italic;max-width:46%;line-height:1.5;pointer-events:none;display:flex;align-items:center;gap:0.5rem;}
+    #mau-hero .mau-hero-hint svg{width:16px;height:16px;flex:0 0 auto;opacity:0.85;}
 
     /* ---------- ĐOẠN VĂN GIỚI THIỆU ---------- */
     #mau-text{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -2100,6 +2103,7 @@ body.ds-modal-lock{overflow:hidden;}
     @media(max-width:760px){
       #mau-hero{grid-template-columns:1fr;}
       #mau-hero .mau-hero-left{order:2;min-height:auto;padding:3rem 1.6rem 4.5rem;}
+      #mau-hero .mau-hero-hint{left:1.5rem;right:1.5rem;bottom:1rem;max-width:none;font-size:11px;justify-content:center;text-align:center;}
       #mau-hero .mau-hero-right{order:1;min-height:56vh;}
       #mau-hero .mau-hero-right::before{display:none;}
       .mau-crumb{left:1.4rem;top:1.3rem;font-size:10px;}
@@ -2246,7 +2250,7 @@ body.ds-modal-lock{overflow:hidden;}
       display:flex;align-items:center;justify-content:center;
       transition:transform .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s ease,border-color .4s ease;}
     .mau-am-frame:hover{transform:translateY(-6px);border-color:rgba(122,15,36,0.4);box-shadow:0 28px 56px rgba(122,15,36,0.26);}
-    .mau-am-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+    .mau-am-frame img{width:100%;height:100%;object-fit:contain;padding:0.6rem;display:block;}
 
     /* ---------- SỐNG CÙNG TÍN NGƯỠNG: 2 trích dẫn ---------- */
     .mau-quotes{width:100%;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:3rem 4rem;align-items:start;}
@@ -2343,6 +2347,7 @@ body.ds-modal-lock{overflow:hidden;}
       <!-- Ảnh hero (thêm sau): thay div bên dưới bằng <img class="mau-hero-img" src="..."> -->
       <img class="mau-hero-img" src="assets/inline/79634f7c69eb.webp" alt="Tranh thờ Tứ phủ">
     </div>
+    <p class="mau-hero-hint"><svg viewBox="0 0 24 24" fill="none"><path d="M9 11.5a2.5 2.5 0 115 0V13m-2.5 8a8.5 8.5 0 100-17 8.5 8.5 0 000 17z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="11.5" cy="16.5" r="0.6" fill="currentColor"/></svg>Nhấn vào ảnh để đọc thêm thông tin</p>
   </section>
 
   <!-- ĐOẠN VĂN GIỚI THIỆU -->
